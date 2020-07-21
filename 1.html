@@ -108,7 +108,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 UIBar.destroy();</script><tw-passagedata pid="1" name="Start" tags="" position="100,100" size="100,100">代天府守護神的挑戰
 [[開始遊戲|First Passage]]</tw-passagedata><tw-passagedata pid="2" name="First Passage" tags="" position="225,100" size="100,100">解開謎題
 &#39;&#39;謎底:&#39;&#39; &lt;&lt;textbox &quot;$ans1&quot; &quot;&quot;&gt;&gt; (ooxx)
-
+背包:&lt;&lt;inventory &#39;$inventory&#39;&gt;&gt;
 &lt;&lt;button &quot;送出謎底&quot;&gt;&gt;
 	&lt;&lt;set $ans1 to $ans1.trim()&gt;&gt;
 
@@ -122,7 +122,7 @@ UIBar.destroy();</script><tw-passagedata pid="1" name="Start" tags="" position="
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;@@#input-error;@@
 [[獲得日記碎片|Second Passage]]</tw-passagedata><tw-passagedata pid="3" name="Second Passage" tags="" position="350,100" size="100,100">獲得日記碎片
-&lt;&lt;inventory &#39;$inventory&#39;&gt;&gt;
+背包:&lt;&lt;inventory &#39;$inventory&#39;&gt;&gt;
 [[回到謎題|First Passage]]
 [[去下一關|2.html]]
 [[開新選單|index.html]]</tw-passagedata><tw-passagedata pid="4" name="StoryInit" tags="" position="475,100" size="100,100">&lt;&lt;newinventory &#39;$inventory&#39;&gt;&gt;</tw-passagedata></tw-storydata>
