@@ -99,7 +99,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://2319E8AF-64BD-4AD3-85B2-229958A990CB// --><tw-storydata name="社大遊戲" startnode="19" creator="Tweego" creator-version="2.1.1" ifid="2319E8AF-64BD-4AD3-85B2-229958A990CB" zoom="1" format="SugarCube" format-version="2.32.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "user.min.css" */
+	<!-- UUID://2319E8AF-64BD-4AD3-85B2-229958A990CB// --><tw-storydata name="社大遊戲" startnode="35" creator="Tweego" creator-version="2.1.1" ifid="2319E8AF-64BD-4AD3-85B2-229958A990CB" zoom="1" format="SugarCube" format-version="2.32.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "user.min.css" */
 html{this:that;font-weight:700}carrots{color:red}.puzzle{margin:0;border:0;width:33%;float:left}#content{width:100%}
 /* twine-user-stylesheet #2: "Story Stylesheet" */
 /*字體*/
@@ -322,7 +322,7 @@ body[data-tags~="no-side-bar"] #ui-bar~#story {
 .delayed {
     opacity: 0;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "bundle.min.js" */
-"use strict";!function(){var u={tryGlobal:!0,defaultStrings:{empty:"你的背包是空的",listDrop:"Discard",separator:"\n"}};function a(i,r,t,n){$(document).trigger({type:"initialized"===n?":inventory-init":":inventory-update",instance:i,receiving:r,moved:t,context:n})}function h(i){if(console.log(localStorage.getItem("inv")),i=i?(i=[].slice.call(arguments)).flatten():[],!(this instanceof h))return new h(i);this.inv=i,a(this,null,i=i.length?i:null,"initialized")}Object.assign(h,{is:function(i){return i instanceof h},log:function(i){return h.is(i)?"Inventory.log() -> "+i.toArray().join(" - "):"Inventory.log() -> object is not an inventory..."},removeDuplicates:function(i){if(h.is(i)){var r,t=i.toArray();return r=[],t.forEach(function(i){r.includes(i)||r.push(i)}),r}}}),Object.assign(h.prototype,{transfer:function(i){if(arguments.length<2)return this;if(!h.is(i))return this;for(var r=[].slice.call(arguments),t=[],n=0,e=(r=r.slice(1).flatten()).length;n<e;n++)this.inv.includes(r[n])&&(this.inv.delete(r[n]),t.push(r[n]));return t.length&&(i.inv=i.inv.concat(t),a(this,i,t,"transfer")),this},has:function(){var i=[].slice.call(arguments).flatten();return!(!i||!i.length)&&this.inv.includesAny(i)},hasAll:function(){var i=[].slice.call(arguments).flatten();return!(!i||!i.length)&&this.inv.includesAll(i)},pickUp:function(i){var r,t=[].slice.call(arguments).flatten(),n=this;if(t&&t.length){"unique"!==i&&"unique"!==t[0]||(t=t.splice(1),r=[],t.forEach(function(i){n.inv.includes(i)||r.includes(i)||r.push(i)}),t=r),console.log("getItem"+localStorage.getItem("inv"));var e=JSON.parse(localStorage.getItem("inv"));this.inv=e?e.concat(t):this.inv.concat(t);var s=JSON.stringify(this.inv);localStorage.setItem("inv",s),console.log("set:"+s),console.log("get:"+localStorage.getItem("inv")),a(this,null,t,"pickup")}return this},drop:function(){var r,i=[].slice.call(arguments).flatten(),t=this;if(i&&i.length){var n=[];i.forEach(function(i){t.has(i)&&(n.push(i),r=t.inv.indexOf(i),t.inv.deleteAt(r))}),a(this,null,n,"drop")}return this},sort:function(){return this.inv=this.inv.sort(),a(this,null,null,"sort"),this},show:function(i){i&&"string"==typeof i||(i=u.defaultStrings.separator);var r=JSON.parse(localStorage.getItem("inv"));if(this.inv=r||[],this.inv.length){var t='<div id="content">',n=this.inv.join("");return 0<=n.indexOf("碎片1")?t+='<img alt=" " class="puzzle" src="slice_0_0.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片2")?t+='<img alt=" " class="puzzle" src="slice_0_1.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片3")?t+='<img alt=" " class="puzzle" src="slice_0_2.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片4")?t+='<img alt=" " class="puzzle" src="slice_1_0.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片5")?t+='<img alt=" " class="puzzle" src="slice_1_1.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片6")?t+='<img alt=" " class="puzzle" src="slice_1_2.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片7")?t+='<img alt=" " class="puzzle" src="slice_2_0.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片8")?t+='<img alt=" " class="puzzle" src="slice_2_1.png">':t+='<img alt=" " class="puzzle" src="blank.png">',0<=n.indexOf("碎片9")?t+='<img alt=" " class="puzzle" src="slice_2_2.png">':t+='<img alt=" " class="puzzle" src="blank.png">',t+="</div>"}return u.defaultStrings.empty},show1:function(i){i&&"string"==typeof i||(i=u.defaultStrings.separator);var r=JSON.parse(getCookie("inv"));return this.inv=r||[],this.inv.length?this.inv.join(i):u.defaultStrings.empty},empty:function(){var i=clone(this.inv);return this.inv=[],a(this,null,i,"drop"),this},toArray:function(){return this.inv},count:function(r){if(r&&"string"==typeof r){var t=0;return this.toArray().forEach(function(i){i===r&&t++}),t}return this.toArray().length},isEmpty:function(){return 0===this.toArray().length},linkedList:function(l,o){l&&h.is(l)||(l=!1);var i=this.toArray(),c=this,g=$(document.createElement("span"));return i&&i.length?i.forEach(function(i,r,t){var n=$(document.createElement("span")),e=$(document.createElement("a")),s=o||u.defaultStrings.drop,a=function(i,r){var t=Math.random().toString(36).substring(7);return arguments.length<2&&(i=Math.random().toString(36).substring(7),r=random(99)),"simple-inv-"+r+"-"+Date.now()+"-"+i.replace(/[^A-Za-z0-9]/g,"")+"-"+t}(i,r);e.wiki(s).addClass("simple-inv drop-link"),e.ariaClick(function(){l?c.transfer(l,i):c.drop(i),$("#"+a).empty()}),n.attr("id",a).addClass("simple-inv link-listing").wiki(i+" ").append(e),r<t.length-1&&n.wiki("<br />"),g.append(n)}):g.wiki(u.defaultStrings.empty),g},constructor:h,toJSON:function(){return JSON.reviveWrapper("new setup.Inventory("+JSON.stringify(this.inv)+")")},clone:function(){return new h(this.inv)}}),setup.Inventory=h,setup.simpleInv={inventory:h},u.tryGlobal&&(window.Inventory=window.Inventory||h),Macro.add("newinventory",{handler:function(){if(this.args.length<1)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');Wikifier.setValue(i,new h(this.args.slice(1).flatten()))}}),Macro.add("pickup",{handler:function(){if(this.args.length<2)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");r.pickUp(this.args.slice(1).flatten())}}),Macro.add("drop",{handler:function(){if(this.args.length<2)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");r.drop(this.args.slice(1).flatten())}}),Macro.add("transfer",{handler:function(){if(this.args.length<3)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");var t=this.args[1].trim();if("$"!==t[0]&&"_"!==t[0])return this.error('variable name "'+this.args[1]+'" is missing its sigil ($ or _)');var n=Wikifier.getValue(t);if(!h.is(n))return this.error("variable "+t+" is not an inventory!");r.transfer(n,this.args.slice(2).flatten())}}),Macro.add("dropall",{handler:function(){if(console.log("dropall"),localStorage.removeItem("inv"),1!==this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");r.empty()}}),Macro.add("clear","dropall",!1),Macro.add("sort",{handler:function(){if(1!==this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");r.sort()}}),Macro.add("inventory",{handler:function(){if(this.args.length<1||2<this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!h.is(r))return this.error("variable "+i+" is not an inventory!");var t=$(document.createElement("span")),n=!!this.args[1]&&this.args[1];t.wiki(r.show(n)).addClass("macro-"+this.name).appendTo(this.output)}}),Macro.add("linkedinventory",{handler:function(){if(this.args.length<2||3<this.args.length)return this.error("incorrect number of arguments");var i=!1,r="",t=this.args[1].trim(),n="string"==typeof this.args[0]&&this.args[0];if(!n)return this.error("first argument should be the link text");if("$"!==t[0]&&"_"!==t[0])return this.error('variable name "'+this.args[1]+'" is missing its sigil ($ or _)');var e=Util.slugify(t);e=this.name+"-"+e;var s=Wikifier.getValue(t);if(!h.is(s))return this.error("variable "+t+" is not an inventory!");if(2<this.args.length){if("$"!==(r=this.args[2].trim())[0]&&"_"!==r[0])return this.error('variable name "'+this.args[2]+'" is missing its sigil ($ or _)');if(i=Wikifier.getValue(r),!h.is(i))return this.error("variable "+r+" is not an inventory!")}s.linkedList(i,n).attr({id:e,"data-rec":r,"data-self":t,"data-action":n}).addClass("macro-"+this.name).appendTo(this.output)}})}();
+"use strict";!function(){var g={tryGlobal:!0,defaultStrings:{empty:"你的背包是空的",listDrop:"Discard",separator:"\n"}};function a(i,r,t,n){$(document).trigger({type:"initialized"===n?":inventory-init":":inventory-update",instance:i,receiving:r,moved:t,context:n})}function c(i){if(console.log(localStorage.getItem("inv")),i=i?(i=[].slice.call(arguments)).flatten():[],!(this instanceof c))return new c(i);this.inv=i,a(this,null,i=i.length?i:null,"initialized")}Object.assign(c,{is:function(i){return i instanceof c},log:function(i){return c.is(i)?"Inventory.log() -> "+i.toArray().join(" - "):"Inventory.log() -> object is not an inventory..."},removeDuplicates:function(i){if(c.is(i)){var r,t=i.toArray();return r=[],t.forEach(function(i){r.includes(i)||r.push(i)}),r}}}),Object.assign(c.prototype,{transfer:function(i){if(arguments.length<2)return this;if(!c.is(i))return this;for(var r=[].slice.call(arguments),t=[],n=0,e=(r=r.slice(1).flatten()).length;n<e;n++)this.inv.includes(r[n])&&(this.inv.delete(r[n]),t.push(r[n]));return t.length&&(i.inv=i.inv.concat(t),a(this,i,t,"transfer")),this},has:function(){var i=[].slice.call(arguments).flatten();return!(!i||!i.length)&&this.inv.includesAny(i)},hasAll:function(){var i=[].slice.call(arguments).flatten();return!(!i||!i.length)&&this.inv.includesAll(i)},pickUp:function(i){var r,t=[].slice.call(arguments).flatten(),n=this;if(t&&t.length){"unique"!==i&&"unique"!==t[0]||(t=t.splice(1),r=[],t.forEach(function(i){n.inv.includes(i)||r.includes(i)||r.push(i)}),t=r),console.log("uu"+i),console.log("getItem"+localStorage.getItem("inv"));var e=JSON.parse(localStorage.getItem("inv"));this.inv=e?e.concat(t):this.inv.concat(t);var s=JSON.stringify(this.inv);localStorage.setItem("inv",s),console.log("set:"+s),console.log("get:"+localStorage.getItem("inv")),a(this,null,t,"pickup")}return this},drop:function(){var r,i=[].slice.call(arguments).flatten(),t=this;if(i&&i.length){var n=[];i.forEach(function(i){t.has(i)&&(n.push(i),r=t.inv.indexOf(i),t.inv.deleteAt(r))}),a(this,null,n,"drop")}return this},sort:function(){return this.inv=this.inv.sort(),a(this,null,null,"sort"),this},show:function(i){i&&"string"==typeof i||(i=g.defaultStrings.separator);var r=JSON.parse(localStorage.getItem("inv"));if(this.inv=r||[],this.inv.length){var t='<div id="content">';return t+=this.inv.join(""),t+="</div>"}return g.defaultStrings.empty},show1:function(i){i&&"string"==typeof i||(i=g.defaultStrings.separator);var r=JSON.parse(getCookie("inv"));return this.inv=r||[],this.inv.length?this.inv.join(i):g.defaultStrings.empty},empty:function(){var i=clone(this.inv);return this.inv=[],a(this,null,i,"drop"),this},toArray:function(){return this.inv},count:function(r){if(r&&"string"==typeof r){var t=0;return this.toArray().forEach(function(i){i===r&&t++}),t}return this.toArray().length},isEmpty:function(){return 0===this.toArray().length},linkedList:function(o,l){o&&c.is(o)||(o=!1);var i=this.toArray(),u=this,h=$(document.createElement("span"));return i&&i.length?i.forEach(function(i,r,t){var n=$(document.createElement("span")),e=$(document.createElement("a")),s=l||g.defaultStrings.drop,a=function(i,r){var t=Math.random().toString(36).substring(7);return arguments.length<2&&(i=Math.random().toString(36).substring(7),r=random(99)),"simple-inv-"+r+"-"+Date.now()+"-"+i.replace(/[^A-Za-z0-9]/g,"")+"-"+t}(i,r);e.wiki(s).addClass("simple-inv drop-link"),e.ariaClick(function(){o?u.transfer(o,i):u.drop(i),$("#"+a).empty()}),n.attr("id",a).addClass("simple-inv link-listing").wiki(i+" ").append(e),r<t.length-1&&n.wiki("<br />"),h.append(n)}):h.wiki(g.defaultStrings.empty),h},constructor:c,toJSON:function(){return JSON.reviveWrapper("new setup.Inventory("+JSON.stringify(this.inv)+")")},clone:function(){return new c(this.inv)}}),setup.Inventory=c,setup.simpleInv={inventory:c},g.tryGlobal&&(window.Inventory=window.Inventory||c),Macro.add("newinventory",{handler:function(){if(this.args.length<1)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');Wikifier.setValue(i,new c(this.args.slice(1).flatten())),console.log(i)}}),Macro.add("pickup",{handler:function(){if(this.args.length<2)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");r.pickUp(this.args.slice(1).flatten())}}),Macro.add("drop",{handler:function(){if(this.args.length<2)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");r.drop(this.args.slice(1).flatten())}}),Macro.add("transfer",{handler:function(){if(this.args.length<3)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");var t=this.args[1].trim();if("$"!==t[0]&&"_"!==t[0])return this.error('variable name "'+this.args[1]+'" is missing its sigil ($ or _)');var n=Wikifier.getValue(t);if(!c.is(n))return this.error("variable "+t+" is not an inventory!");r.transfer(n,this.args.slice(2).flatten())}}),Macro.add("dropall",{handler:function(){if(console.log("dropall"),localStorage.removeItem("$var"),1!==this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");r.empty()}}),Macro.add("clear","dropall",!1),Macro.add("sort",{handler:function(){if(1!==this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");r.sort()}}),Macro.add("inventory",{handler:function(){if(this.args.length<1||2<this.args.length)return this.error("incorrect number of arguments");var i=this.args[0].trim();if("$"!==i[0]&&"_"!==i[0])return this.error('variable name "'+this.args[0]+'" is missing its sigil ($ or _)');var r=Wikifier.getValue(i);if(!c.is(r))return this.error("variable "+i+" is not an inventory!");var t=$(document.createElement("span")),n=!!this.args[1]&&this.args[1];t.wiki(r.show(n)).addClass("macro-"+this.name).appendTo(this.output)}}),Macro.add("linkedinventory",{handler:function(){if(this.args.length<2||3<this.args.length)return this.error("incorrect number of arguments");var i=!1,r="",t=this.args[1].trim(),n="string"==typeof this.args[0]&&this.args[0];if(!n)return this.error("first argument should be the link text");if("$"!==t[0]&&"_"!==t[0])return this.error('variable name "'+this.args[1]+'" is missing its sigil ($ or _)');var e=Util.slugify(t);e=this.name+"-"+e;var s=Wikifier.getValue(t);if(!c.is(s))return this.error("variable "+t+" is not an inventory!");if(2<this.args.length){if("$"!==(r=this.args[2].trim())[0]&&"_"!==r[0])return this.error('variable name "'+this.args[2]+'" is missing its sigil ($ or _)');if(i=Wikifier.getValue(r),!c.is(i))return this.error("variable "+r+" is not an inventory!")}s.linkedList(i,n).attr({id:e,"data-rec":r,"data-self":t,"data-action":n}).addClass("macro-"+this.name).appendTo(this.output)}})}();
 /* twine-user-script #2: "user.min.js" */
 "use strict";function setCookie(e,t,n){var i="";if(n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3),i="; expires="+o.toUTCString()}document.cookie=e+"="+(t||"")+i+"; path=/"}function getCookie(e){for(var t=e+"=",n=document.cookie.split(";"),i=0;i<n.length;i++){for(var o=n[i];" "==o.charAt(0);)o=o.substring(1,o.length);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return null}function eraseCookie(e){document.cookie=e+"=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"}
 /* twine-user-script #3: "Story JavaScript" */
@@ -515,76 +515,19 @@ predisplay["Menu Return"] = function (taskName) {
 		State.variables.return = passage();
 	}
 };
-/* 返回前頁結束 */</script><tw-passagedata pid="1" name="轉場1" tags="" position="775,225" size="100,100">或許這是上天的安排，有些事情不需要花太多時間去深究，竟然日記消失了，那就⋯⋯消失吧，反正都來到信義街，來品嘗信義街附近[[周遭的美食|清珍鴨肉羹]]吧。</tw-passagedata><tw-passagedata pid="2" name="清珍鴨肉羹" tags="" position="650,225" size="100,100">[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="3" name="轉場2" tags="" position="775,350" size="100,100">無支祁太過於強大，根本不是身為凡人的我可以對抗的，所以我決定找無支祁去[[信義街附近的店家|老古石渡＆雲澗茶坊]]喝茶，聊聊身為水怪的往事。</tw-passagedata><tw-passagedata pid="4" name="老古石渡＆雲澗茶坊" tags="" position="650,350" size="100,100">[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="5" name="支線碎片" tags="noreturn" position="1101,200" size="100,100">顯示支線碎片背包
-
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="6" name="c95125" tags="nofooter no-side-bar noreturn" position="1101,200" size="100,100">我從來沒見過奶奶。
-其實，家族裡沒有人知道奶奶是在何時消失……一向寡言的父親不說，母親也要我別問。到了信義街上，曾經的記憶，在親友聊天間所聽過的隻字片語，形成我對奶奶的模樣。
-據說奶奶才華洋溢、個性開朗、果敢、熱心助人，讀書名列前茅、但說到跑步、打球，英姿颯爽，不輸給男生。
-歲月悠悠，忙碌一生的奶奶，在爺爺因病過世後不久，為了散心，順道拜訪親友，獨自前往台南。
-回家後的奶奶不斷說著五條港的繁華，遇到形形色色的人，第一次見到外國人等趣聞，甚至想帶上爸爸移居台南。 
-但，某天，奶奶又展開台南之旅，之後，失去了消息……</tw-passagedata><tw-passagedata pid="7" name="bbd97b" tags="nofooter no-side-bar noreturn" position="1100,326" size="100,100">一輪明月高掛，那是如常的夜晚，不知何處而來的貓兒，慢慢聚攏到高家門外，慢慢佔據屋頂、圍牆……
-曾經，信義街街坊裡搬來一戶高姓人家，高夫人蘇氏過世後，高先生又娶了一位太太。
-然而，婚後沒多久，每到午夜時分，高家附近總會慢慢聚攏許多野貓，發出詭異的叫聲，如泣如訴，聽之令人悚然，無法成眠。
-伴隨著野貓的叫聲，高家太太失魂般走出家門，搖搖晃晃的遊蕩，導致信義街的居民不敢外出，沒有人知道高家發生了什麼事？
-現在你走在信義街，總會看見許許多多的貓……</tw-passagedata><tw-passagedata pid="8" name="0c4ecd" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">信義街的守護神石獅公壓住我的尾巴，讓我動彈不得。
-
-「放開我喵。」
-
-「大膽貓妖，就是你擾亂信義街的安寧！還想要我放過你？」
-
-「我只想在這裡好好的生活，高家的主人隨意傷害我，難道我不能……」石獅公的力氣像一顆沉重的大石頭，壓得我幾乎喘不過氣。雖然我知道利用法術擾亂高家是我的不對，但，高家主人實在太過分了，竟敢隨意傷害貓咪。
-
-「住手！」一陣清脆的聲響。
-
-一位女人站在我面前，隨地撿起地上的石子朝石獅公丟。
-
-「妳是誰？」
-
-「我是一個喜歡台南的女人！」
-
-「蛤？」女人的發言讓石獅公啞口無言。
-
-這是，我與她第一次見面。</tw-passagedata><tw-passagedata pid="9" name="d5d4cc" tags="nofooter no-side-bar noreturn" position="1233,200" size="100,100">很久以前，一位日本人與好友來五條港一帶導覽，在代天府附近，意外發現一幢無人看管，荒廢卻豪華氣派的古宅。
-兩人正想一探究竟，卻聽見二樓傳來幽幽的女聲。
-「你哪會無較早來？」
-他們嚇得落荒而逃，差點撞上經過門口的女算命師，女算命師告訴他們，那聲音是已故沈家小姐的聲音，只要年輕男人靠近宅邸，就會聽到沈小姐的呢喃。
-原來，古宅的主人來自泉州的沈姓富商，擁有五十艘的大船隊，故有「北部林家、南部沈家」的美譽，府城的人們傳唱著：「安平港的沈家，沈家的安平港」。
-某日，沈家的船隊遇上了海上颶風，沒有一艘平安歸來，龐大的財物缺口一夕間擊垮沈家，沈家老爺夫人相繼過世，僅剩下沈小姐獨守空洞的大宅，日日望著海，盼著未婚夫總有一天來迎娶她。
- 歲月無情，某天，鄰居聞到了宅院傳出陣陣異味，於是，進入宅院察看，才發現沈小姐身穿鳳冠霞披、紅綢襖褲，死在二樓閨房的黑檀木床上。
- 不信邪的二人重返古宅，在二樓的床下，發現一支刻有東漢班昭「女誡」的扇子，離開前夕，二樓傳來幽幽的聲音。
-「把扇子還給我……」</tw-passagedata><tw-passagedata pid="10" name="2a1ab2" tags="nofooter no-side-bar noreturn" position="1233,332" size="100,100">八爺，身形矮壯，面黑，名為范無赦，稱范將軍。
-關於八爺的身份，最普遍的說法是很八爺與七爺的橋下之約，八爺見河水暴漲，不願因離去而失信，最後溺斃橋下，後來趕到的七爺，非常傷心，便在樹下上吊自殺。
-玉皇大帝感念他們有信有義，封他們為冥界神祇，負責捉拿鬼魂妖邪。
- 由於八爺當初是因雷雨傾盆、河水暴漲而溺死，若有水鬼、水妖作亂，八爺總是一馬當先，顯靈擒妖退水。下次如果有機會拜見八爺，可以注意看看祂的鞋是否潮濕，是否又出任務了。</tw-passagedata><tw-passagedata pid="11" name="68b1f1" tags="nofooter no-side-bar noreturn" position="1235,452" size="100,100">如果山、水、樹、石都有生命的話，那麼它們對人類破壞自然的行為，將會如何？
-這裡說，是水的故事，水的世界中有水神、河神、海神掌管，也有修仙未成的靈，蟄伏時以蛇的姿態存在，若不擾亂，神與靈倒也相安無事。
-曾經，因為青瞑蛇的擾亂，台江內海淤塞，致五條港的興起，而信義街是五條港之一新港墘港的港道，透過此渡口將南北雜貨運到大陸內地交易，所以商賈不息，繁盛一時。但因為人們為了拓殖，填水為宅、砍乏森林、傾倒家庭廢物廢水的動作不斷，惹惱了蟄伏於此的水靈。
-這個事件，並沒有特別在哪裡被記載下來，靠著信義街的耆老口語流傳著。
-這應該算是信義街水靈作亂最嚴重的一次，那天剛好是漲潮的日子，前一晚天邊的雲彩就透露出天氣的不對勁。
-果然一到夜裡狂風颼颼、陣陣暴雨大作，風雨之中依稀可以聽到似乎有千軍萬馬廝殺聲，然而暴雨導致水道湧出、山洪滾滾奔向海岸、又有海嘯捲起浪濤湧進，瞬間吞沒沿岸港市房屋，家具、家畜無不隨著湍急的水流漂走。
-據說街尾有個小男孩隨家人逃往少數高樓躲過一劫，在隆隆作響被吹走數片屋瓦的縫隙中，看到一道紅光與一尾青蛇數度相交往現今安南鹽水方向遠去直到消失不見。
-七日後，水漸漸褪去，有人發現水道意外地清澈…</tw-passagedata><tw-passagedata pid="12" name="日記碎片" tags="noreturn" position="200,500" size="100,100">顥示日記碎片背包
-
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="13" name="4a4079" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">撿到日記碎片一</tw-passagedata><tw-passagedata pid="14" name="c4d62b" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">撿到日記碎片二</tw-passagedata><tw-passagedata pid="15" name="女鬼的碎片" tags="日記碎片" position="600,500" size="100,100">公廟、恐懼的人群、奶奶、祭壇、大雨到莫名的龐大黑影，這些關鍵記憶都明確告訴我，奶奶不是單純來到信義街，她與信義街的關聯比我想得還要深邃，只不過那所謂『令人絕望的恐怖事件』是什麼？ 一時間我也沒有任何頭緒。</tw-passagedata><tw-passagedata pid="16" name="李青的碎片" tags="日記碎片" position="718,501" size="100,100">我站在祭壇，看到奶奶從公廟慢慢地朝向高處的祭壇走去，手裡高舉著『法器』，眼前龐大的怪物⋯⋯就是『無支祁』，祂張牙舞爪，舉手投足都掀起驚濤駭浪。</tw-passagedata><tw-passagedata pid="17" name="背包" tags="noreturn" position="300,500" size="100,100">&lt;&lt;if $inventory.length is 0&gt;&gt;\
-    什麼都沒有。
-&lt;&lt;else&gt;&gt;\
-    背包裡有：
-	&lt;br&gt;&lt;&lt;= $inventory.join(&#39; &lt;br&gt; &#39;)&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="18" name="令人絕望的恐怖事件" tags="主線碎片" position="600,500" size="100,100">公廟、恐懼的人群、奶奶、祭壇、大雨到莫名的龐大黑影，這些關鍵記憶都明確告訴我，奶奶不是單純來到信義街，她與信義街的關聯比我想得還要深邃，只不過那所謂『令人絕望的恐怖事件』是什麼？ 一時間我也沒有任何頭緒。</tw-passagedata><tw-passagedata pid="19" name="開場1" tags="" position="900,100" size="100,100">記憶，記憶是一片片碎片組合而成，這些碎片散落在各地角落，每每不小心或刻意拾取這些碎片時，那些曾經發生過的『故事』，就進入我們的腦海。
-
-台南府城，是古都，也是記憶與故事所建構的城市，請與我們一同尋找碎片，尋找這裡的『奇聞軼事』，尋找著發生在府城每條街巷的祕密。
-
-[[開場2|開場2]]</tw-passagedata><tw-passagedata pid="20" name="StoryAuthor" tags="noreturn" position="400,300" size="100,100">(製作單位)</tw-passagedata><tw-passagedata pid="21" name="StoryBanner" tags="noreturn" position="400,0" size="100,100">&lt;img src=&quot;https://spng.subpng.com/20180329/fwe/kisspng-cat-dog-pet-logo-scratching-post-element-5abc8d9c15ba72.288343631522306460089.jpg&quot; width=&quot;64&quot; height=&quot;64&quot;&gt;</tw-passagedata><tw-passagedata pid="22" name="StoryCaption" tags="noreturn" position="400,400" size="100,100"></tw-passagedata><tw-passagedata pid="23" name="StoryDisplayTitle" tags="noreturn" position="400,100" size="100,100">遊戲標題</tw-passagedata><tw-passagedata pid="24" name="#StoryInterface" tags="noreturn" position="400,700" size="100,100">更改側邊選單的介面樣式</tw-passagedata><tw-passagedata pid="25" name="StoryMenu" tags="noreturn" position="400,500" size="100,100">/* 側邊欄選單項目 */
+/* 返回前頁結束 */</script><tw-passagedata pid="1" name="StoryAuthor" tags="noreturn" position="400,300" size="100,100">(製作單位)</tw-passagedata><tw-passagedata pid="2" name="StoryBanner" tags="noreturn" position="400,0" size="100,100">&lt;img src=&quot;https://spng.subpng.com/20180329/fwe/kisspng-cat-dog-pet-logo-scratching-post-element-5abc8d9c15ba72.288343631522306460089.jpg&quot; width=&quot;64&quot; height=&quot;64&quot;&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryCaption" tags="noreturn" position="400,400" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="StoryDisplayTitle" tags="noreturn" position="400,100" size="100,100">遊戲標題</tw-passagedata><tw-passagedata pid="5" name="#StoryInterface" tags="noreturn" position="400,700" size="100,100">更改側邊選單的介面樣式</tw-passagedata><tw-passagedata pid="6" name="StoryMenu" tags="noreturn" position="400,500" size="100,100">/* 側邊欄選單項目 */
 [[背包|背包]]
 [[日記碎片|日記碎片]]
 [[支線碎片|支線碎片]]
-[[製作說明|說明文件]]</tw-passagedata><tw-passagedata pid="26" name="StorySubtitle" tags="noreturn" position="400,200" size="100,100">-副標題-</tw-passagedata><tw-passagedata pid="27" name="StoryInit" tags="noreturn" position="400,600" size="100,100">/* 設置角色屬性 */
+[[製作說明|說明文件]]</tw-passagedata><tw-passagedata pid="7" name="StorySubtitle" tags="noreturn" position="400,200" size="100,100">-副標題-</tw-passagedata><tw-passagedata pid="8" name="StoryInit" tags="noreturn" position="400,600" size="100,100">/* 設置角色屬性 */
 &lt;&lt;set $hp to 10&gt;&gt; 設置血量
 &lt;&lt;set $money to 20&gt;&gt; 設置金錢
 
 /* 設置物品變數 */
-&lt;&lt;set $inventory to []&gt;&gt; 設置背包
+/* &lt;&lt;set $inventory to []&gt;&gt; 設置背包 */
+&lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
+&lt;&lt;newinventory &#39;$dinv&#39;&gt;&gt;
+&lt;&lt;newinventory &#39;$binv&#39;&gt;&gt;
 &lt;&lt;set $foldfan to &quot;摺扇&quot;&gt;&gt;
 &lt;&lt;set $diaryA to &quot;日記碎片A&quot;&gt;&gt;
 
@@ -593,11 +536,11 @@ predisplay["Menu Return"] = function (taskName) {
 &lt;&lt;set $chestOpen to false&gt;&gt; 設置箱子未開啟
 
 /* 關卡提示 */
-&lt;&lt;set $textGroup to 1&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="PassageHeader" tags="noreturn" position="300,0" size="100,100">/* 設定有noheader標籤的片段不會出現頁首內容 */
+&lt;&lt;set $textGroup to 1&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="PassageHeader" tags="noreturn" position="300,0" size="100,100">/* 設定有noheader標籤的片段不會出現頁首內容 */
 &lt;&lt;if not tags().includes(&quot;noheader&quot;)&gt;&gt;\
 /* 顯示當前片段的網址 */
 &lt;div style=&quot;float: right;&quot;&gt;&lt;a @href=&quot;encodeURI(decodeURI(document.location.href.match(/(^[^#]*)/)[0])+&#39;#&#39;+passage())&quot; alt=&quot;此頁連結&quot; title=&quot;此頁連結&quot;&gt;#&lt;/a&gt;&lt;/div&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="PassageFooter" tags="noreturn" position="300,100" size="100,100">/* 設定有nofooter標籤的片段不會出現頁尾內容 */</tw-passagedata><tw-passagedata pid="30" name="說明文件" tags="nofooter" position="0,200" size="200,200">&lt;div class=&quot;message&quot;&gt;&lt;h3&gt;[介面顯示調整]&lt;/h3&gt;&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="PassageFooter" tags="noreturn" position="300,100" size="100,100">/* 設定有nofooter標籤的片段不會出現頁尾內容 */</tw-passagedata><tw-passagedata pid="11" name="說明文件" tags="nofooter" position="0,200" size="200,200">&lt;div class=&quot;message&quot;&gt;&lt;h3&gt;[介面顯示調整]&lt;/h3&gt;&lt;/div&gt;
 1.如果希望片段頁面不要出現&#39;&#39;頁首&#39;&#39;、&#39;&#39;頁尾&#39;&#39;的內容(像是用QRCODE連接的支線碎片片段)，可以加上標籤@@color:red; noheader @@和@@color:red; nofooter @@
 
 2.除了故事進行的片段，其於有關介面、選單或機制功能設定的片段，均加上標籤@@color:red;  noreturn @@
@@ -661,7 +604,107 @@ predisplay["Menu Return"] = function (taskName) {
 3.幾秒後出現文字
 @@color:green;{{{&lt;&lt;timed 1s t8n&gt;&gt;}}}@@文字內容@@color:green;{{{&lt;&lt;/timed&gt;&gt;}}}@@
 要調整出現的時間，更改@@color:green;1s@@(1秒)
-不想要文字淡出，刪掉@@color:green;t8n@@</tw-passagedata><tw-passagedata pid="31" name="開場2" tags="" position="900,225" size="100,100">信義街又名老古石街，早期居住於此的住民會利用老古石來搭建房屋，走在這條街上總能看見老古石的蹤跡，故，此街的古地名為「老古石街」。
+不想要文字淡出，刪掉@@color:green;t8n@@</tw-passagedata><tw-passagedata pid="12" name="轉場1" tags="" position="775,225" size="100,100">或許這是上天的安排，有些事情不需要花太多時間去深究，竟然日記消失了，那就⋯⋯消失吧，反正都來到信義街，來品嘗信義街附近[[周遭的美食|清珍鴨肉羹]]吧。</tw-passagedata><tw-passagedata pid="13" name="清珍鴨肉羹" tags="" position="650,225" size="100,100">[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="14" name="轉場2" tags="" position="775,350" size="100,100">無支祁太過於強大，根本不是身為凡人的我可以對抗的，所以我決定找無支祁去[[信義街附近的店家|老古石渡＆雲澗茶坊]]喝茶，聊聊身為水怪的往事。</tw-passagedata><tw-passagedata pid="15" name="老古石渡＆雲澗茶坊" tags="" position="650,350" size="100,100">[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="16" name="支線碎片" tags="noreturn" position="1101,200" size="100,100">顯示支線碎片背包
+&lt;&lt;inventory &#39;$binv&#39;&gt;&gt;
+
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="17" name="c95125" tags="nofooter no-side-bar noreturn" position="1101,200" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片1&#39;&gt;&gt;
+我從來沒見過奶奶。
+其實，家族裡沒有人知道奶奶是在何時消失……一向寡言的父親不說，母親也要我別問。到了信義街上，曾經的記憶，在親友聊天間所聽過的隻字片語，形成我對奶奶的模樣。
+據說奶奶才華洋溢、個性開朗、果敢、熱心助人，讀書名列前茅、但說到跑步、打球，英姿颯爽，不輸給男生。
+歲月悠悠，忙碌一生的奶奶，在爺爺因病過世後不久，為了散心，順道拜訪親友，獨自前往台南。
+回家後的奶奶不斷說著五條港的繁華，遇到形形色色的人，第一次見到外國人等趣聞，甚至想帶上爸爸移居台南。 
+但，某天，奶奶又展開台南之旅，之後，失去了消息……
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="18" name="bbd97b" tags="nofooter no-side-bar noreturn" position="1100,326" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片2&#39;&gt;&gt;
+一輪明月高掛，那是如常的夜晚，不知何處而來的貓兒，慢慢聚攏到高家門外，慢慢佔據屋頂、圍牆……
+曾經，信義街街坊裡搬來一戶高姓人家，高夫人蘇氏過世後，高先生又娶了一位太太。
+然而，婚後沒多久，每到午夜時分，高家附近總會慢慢聚攏許多野貓，發出詭異的叫聲，如泣如訴，聽之令人悚然，無法成眠。
+伴隨著野貓的叫聲，高家太太失魂般走出家門，搖搖晃晃的遊蕩，導致信義街的居民不敢外出，沒有人知道高家發生了什麼事？
+現在你走在信義街，總會看見許許多多的貓……
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="19" name="0c4ecd" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片3&#39;&gt;&gt;
+信義街的守護神石獅公壓住我的尾巴，讓我動彈不得。
+
+「放開我喵。」
+
+「大膽貓妖，就是你擾亂信義街的安寧！還想要我放過你？」
+
+「我只想在這裡好好的生活，高家的主人隨意傷害我，難道我不能……」石獅公的力氣像一顆沉重的大石頭，壓得我幾乎喘不過氣。雖然我知道利用法術擾亂高家是我的不對，但，高家主人實在太過分了，竟敢隨意傷害貓咪。
+
+「住手！」一陣清脆的聲響。
+
+一位女人站在我面前，隨地撿起地上的石子朝石獅公丟。
+
+「妳是誰？」
+
+「我是一個喜歡台南的女人！」
+
+「蛤？」女人的發言讓石獅公啞口無言。
+
+這是，我與她第一次見面。
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="20" name="d5d4cc" tags="nofooter no-side-bar noreturn" position="1233,200" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片4&#39;&gt;&gt;
+很久以前，一位日本人與好友來五條港一帶導覽，在代天府附近，意外發現一幢無人看管，荒廢卻豪華氣派的古宅。
+兩人正想一探究竟，卻聽見二樓傳來幽幽的女聲。
+「你哪會無較早來？」
+他們嚇得落荒而逃，差點撞上經過門口的女算命師，女算命師告訴他們，那聲音是已故沈家小姐的聲音，只要年輕男人靠近宅邸，就會聽到沈小姐的呢喃。
+原來，古宅的主人來自泉州的沈姓富商，擁有五十艘的大船隊，故有「北部林家、南部沈家」的美譽，府城的人們傳唱著：「安平港的沈家，沈家的安平港」。
+某日，沈家的船隊遇上了海上颶風，沒有一艘平安歸來，龐大的財物缺口一夕間擊垮沈家，沈家老爺夫人相繼過世，僅剩下沈小姐獨守空洞的大宅，日日望著海，盼著未婚夫總有一天來迎娶她。
+ 歲月無情，某天，鄰居聞到了宅院傳出陣陣異味，於是，進入宅院察看，才發現沈小姐身穿鳳冠霞披、紅綢襖褲，死在二樓閨房的黑檀木床上。
+ 不信邪的二人重返古宅，在二樓的床下，發現一支刻有東漢班昭「女誡」的扇子，離開前夕，二樓傳來幽幽的聲音。
+「把扇子還給我……」
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="21" name="2a1ab2" tags="nofooter no-side-bar noreturn" position="1233,332" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片5&#39;&gt;&gt;
+八爺，身形矮壯，面黑，名為范無赦，稱范將軍。
+關於八爺的身份，最普遍的說法是很八爺與七爺的橋下之約，八爺見河水暴漲，不願因離去而失信，最後溺斃橋下，後來趕到的七爺，非常傷心，便在樹下上吊自殺。
+玉皇大帝感念他們有信有義，封他們為冥界神祇，負責捉拿鬼魂妖邪。
+ 由於八爺當初是因雷雨傾盆、河水暴漲而溺死，若有水鬼、水妖作亂，八爺總是一馬當先，顯靈擒妖退水。下次如果有機會拜見八爺，可以注意看看祂的鞋是否潮濕，是否又出任務了。
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="22" name="68b1f1" tags="nofooter no-side-bar noreturn" position="1235,452" size="100,100">&lt;&lt;pickup &#39;$binv&#39; &#39;支線碎片6&#39;&gt;&gt;
+如果山、水、樹、石都有生命的話，那麼它們對人類破壞自然的行為，將會如何？
+這裡說，是水的故事，水的世界中有水神、河神、海神掌管，也有修仙未成的靈，蟄伏時以蛇的姿態存在，若不擾亂，神與靈倒也相安無事。
+曾經，因為青瞑蛇的擾亂，台江內海淤塞，致五條港的興起，而信義街是五條港之一新港墘港的港道，透過此渡口將南北雜貨運到大陸內地交易，所以商賈不息，繁盛一時。但因為人們為了拓殖，填水為宅、砍乏森林、傾倒家庭廢物廢水的動作不斷，惹惱了蟄伏於此的水靈。
+這個事件，並沒有特別在哪裡被記載下來，靠著信義街的耆老口語流傳著。
+這應該算是信義街水靈作亂最嚴重的一次，那天剛好是漲潮的日子，前一晚天邊的雲彩就透露出天氣的不對勁。
+果然一到夜裡狂風颼颼、陣陣暴雨大作，風雨之中依稀可以聽到似乎有千軍萬馬廝殺聲，然而暴雨導致水道湧出、山洪滾滾奔向海岸、又有海嘯捲起浪濤湧進，瞬間吞沒沿岸港市房屋，家具、家畜無不隨著湍急的水流漂走。
+據說街尾有個小男孩隨家人逃往少數高樓躲過一劫，在隆隆作響被吹走數片屋瓦的縫隙中，看到一道紅光與一尾青蛇數度相交往現今安南鹽水方向遠去直到消失不見。
+七日後，水漸漸褪去，有人發現水道意外地清澈…
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="23" name="日記碎片" tags="noreturn" position="200,500" size="100,100">顯示日記碎片背包
+&lt;&lt;inventory &#39;$dinv&#39;&gt;&gt;
+
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="24" name="4a4079" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片1&#39;&gt;&gt;
+撿到日記碎片一
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="25" name="c4d62b" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片2&#39;&gt;&gt;
+撿到日記碎片二
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="26" name="女鬼的碎片" tags="日記碎片" position="600,500" size="100,100">公廟、恐懼的人群、奶奶、祭壇、大雨到莫名的龐大黑影，這些關鍵記憶都明確告訴我，奶奶不是單純來到信義街，她與信義街的關聯比我想得還要深邃，只不過那所謂『令人絕望的恐怖事件』是什麼？ 一時間我也沒有任何頭緒。</tw-passagedata><tw-passagedata pid="27" name="李青的碎片" tags="日記碎片" position="718,501" size="100,100">我站在祭壇，看到奶奶從公廟慢慢地朝向高處的祭壇走去，手裡高舉著『法器』，眼前龐大的怪物⋯⋯就是『無支祁』，祂張牙舞爪，舉手投足都掀起驚濤駭浪。</tw-passagedata><tw-passagedata pid="28" name="背包" tags="noreturn" position="300,500" size="100,100">顯示背包
+&lt;&lt;inventory &#39;$inv&#39;&gt;&gt;
+
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="29" name="dropall" tags="nofooter no-side-bar noreturn" position="1100,100" size="100,100">丟掉所有碎片
+&lt;&lt;dropall &#39;$inv&#39;&gt;&gt;
+&lt;&lt;dropall &#39;$binv&#39;&gt;&gt;
+&lt;&lt;dropall &#39;$dinv&#39;&gt;&gt;
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="30" name="令人絕望的恐怖事件" tags="主線碎片" position="600,500" size="100,100">公廟、恐懼的人群、奶奶、祭壇、大雨到莫名的龐大黑影，這些關鍵記憶都明確告訴我，奶奶不是單純來到信義街，她與信義街的關聯比我想得還要深邃，只不過那所謂『令人絕望的恐怖事件』是什麼？ 一時間我也沒有任何頭緒。</tw-passagedata><tw-passagedata pid="31" name="8421ec" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">這不是法器QRCODE網址
+https://nimotw.github.io/alpha1.html#8421ec
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="32" name="f31e1e" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器1&#39;&gt;&gt;
+法器一QRCODE網址
+https://nimotw.github.io/alpha1.html#f31e1e
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="33" name="9d8322" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器2&#39;&gt;&gt;
+法器二QRCODE網址
+https://nimotw.github.io/alpha1.html#9d8322
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="34" name="f1c6eb" tags="nofooter no-side-bar noreturn" position="1099,452" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器3&#39;&gt;&gt;
+法器三QRCODE網址
+https://nimotw.github.io/alpha1.html#f1c6eb
+
+(閱讀完後，請關閉此分頁，回到原遊戲頁面)</tw-passagedata><tw-passagedata pid="35" name="開場1" tags="" position="900,100" size="100,100">記憶，記憶是一片片碎片組合而成，這些碎片散落在各地角落，每每不小心或刻意拾取這些碎片時，那些曾經發生過的『故事』，就進入我們的腦海。
+
+台南府城，是古都，也是記憶與故事所建構的城市，請與我們一同尋找碎片，尋找這裡的『奇聞軼事』，尋找著發生在府城每條街巷的祕密。
+
+[[開場2|開場2]]</tw-passagedata><tw-passagedata pid="36" name="開場2" tags="" position="900,225" size="100,100">信義街又名老古石街，早期居住於此的住民會利用老古石來搭建房屋，走在這條街上總能看見老古石的蹤跡，故，此街的古地名為「老古石街」。
 
 我是林小凡，第一次來到信義街，我來到這裡的目的是為了尋找失蹤已久的奶奶，而我手邊僅留下奶奶年輕時的「日記」，日記裡記載了奶奶跟信義街的關係，我想或許信義街可能找得到關於奶奶的線索。
 
@@ -690,9 +733,9 @@ predisplay["Menu Return"] = function (taskName) {
 貓：誰理你喵！我好像看到碎片朝『代天府』飛去，我要去找碎片了，881～
 
 [[趕緊去代天府|開場3]]
-[[好麻煩呀！乾脆回家吧。|轉場1]]</tw-passagedata><tw-passagedata pid="32" name="開場3" tags="" position="900,350" size="100,100">貓咪妖怪、日記消失不見，一連串未知的狀況，雖然還不能馬上接受，只能一邊蒐集『日記碎片』；一邊尋找關於奶奶的線索。
+[[好麻煩呀！乾脆回家吧。|轉場1]]</tw-passagedata><tw-passagedata pid="37" name="開場3" tags="" position="900,350" size="100,100">貓咪妖怪、日記消失不見，一連串未知的狀況，雖然還不能馬上接受，只能一邊蒐集『日記碎片』；一邊尋找關於奶奶的線索。
 
-[[第一關1|第一關1]]</tw-passagedata><tw-passagedata pid="33" name="第一關1" tags="" position="1100,100" size="100,100">&quot;林小凡來到了代天府。&quot;
+[[第一關1|第一關1]]</tw-passagedata><tw-passagedata pid="38" name="第一關1" tags="" position="1100,100" size="100,100">&quot;林小凡來到了代天府。&quot;
 
 代天府位在信義街巷口的神祕住宅，相傳裡頭有許多恐怖的傳說，日本作家佐藤春夫其中一篇小說『女誡扇綺譚』的故事背景就是參考代天府。
 
@@ -730,7 +773,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：好，我接受挑戰。
 
-[[第一關2|第一關2]]</tw-passagedata><tw-passagedata pid="34" name="第一關2" tags="" position="1100,225" size="100,100">女鬼：用這張@@color:red; &lt;&lt;hovertip &#39;在道具包中找出字母表&#39;&gt;&gt;漢字對應拉丁字母表&lt;&lt;/hovertip&gt;&gt;@@，解開我藏在代天府的秘密吧！
+[[第一關2|第一關2]]</tw-passagedata><tw-passagedata pid="39" name="第一關2" tags="" position="1100,225" size="100,100">女鬼：用這張@@color:red; &lt;&lt;hovertip &#39;在道具包中找出字母表&#39;&gt;&gt;漢字對應拉丁字母表&lt;&lt;/hovertip&gt;&gt;@@，解開我藏在代天府的秘密吧！
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;\
   請輸入答案：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;\
@@ -744,7 +787,7 @@ predisplay["Menu Return"] = function (taskName) {
 		&lt;&lt;goto &quot;第一關錯誤&quot;&gt;&gt;\
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;\
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="35" name="第一關錯誤" tags="" position="1100,475" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="40" name="第一關錯誤" tags="" position="1100,475" size="100,100">&lt;div class=&quot;say&quot;&gt;
 	&lt;img src=&quot;https://stickershop.line-scdn.net/stickershop/v1/product/1305453/LINEStorePC/main.png&quot;&gt;
 	&lt;p&gt;女鬼&lt;/p&gt;
 	&lt;p&gt;笑話，這點程度還想拿碎片。該不會看到HERO就自以為是英雄啦？&lt;/p&gt;
@@ -756,7 +799,7 @@ predisplay["Menu Return"] = function (taskName) {
 	&lt;&lt;include &quot;第一關線索2&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
 	&lt;&lt;include &quot;第一關線索3&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="第一關正確" tags="" position="1100,350" size="100,100">我順利地通過遊戲，當女幽靈一連無奈地將碎片交還給我時，日記碎片發出異常的光芒，此刻，信義街被烏雲覆蓋，女幽靈也被異常的光芒嚇得消失無蹤。
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="第一關正確" tags="" position="1100,350" size="100,100">我順利地通過遊戲，當女幽靈一連無奈地將碎片交還給我時，日記碎片發出異常的光芒，此刻，信義街被烏雲覆蓋，女幽靈也被異常的光芒嚇得消失無蹤。
 
 正當我不曉得發生什麼事時，日記碎片散開，突然，我感覺腦袋好脹，眼前一片漆黑，一道光照進我的眼中，此時，我站在某個地方，像觀看電影般看著記憶碎片中所記載的故事。
 
@@ -770,7 +813,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 &quot;少女正在某處看著小凡。&quot;
 
-[[第二關1|第二關1]]</tw-passagedata><tw-passagedata pid="37" name="第一關線索1" tags="noreturn" position="1100,600" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+[[第二關1|第二關1]]</tw-passagedata><tw-passagedata pid="42" name="第一關線索1" tags="noreturn" position="1100,600" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
   //拜託嘛！漂亮的大姊姊～～～請告訴我提示！//
   &lt;&lt;timed 1s t8n&gt;&gt;
@@ -780,7 +823,7 @@ predisplay["Menu Return"] = function (taskName) {
 	  &lt;p&gt;嘛嘛嘛，真是個好小子。依循著對聯並彼此相連的話，我想就能看出端倪了！&lt;/p&gt;
 	&lt;/div&gt;
   &lt;&lt;/timed&gt;&gt;
- &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="第一關線索2" tags="noreturn" position="1100,700" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+ &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="第一關線索2" tags="noreturn" position="1100,700" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
   @@color:blue;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
   //拜託嘛！漂亮的大姊姊～～～再提示多一點嘛！//
@@ -791,7 +834,7 @@ predisplay["Menu Return"] = function (taskName) {
 		  &lt;p&gt;真的是拿你沒辦法，將上下聯轉換成的英文字串起來，並加以斷句可以得知「字」是藏在某處之下，找出對應處其下方的文字由左至右排列即為答案。&lt;/p&gt;
 		&lt;/div&gt;
 	   &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="第一關線索3" tags="noreturn" position="1100,800" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="第一關線索3" tags="noreturn" position="1100,800" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
   @@color:blue;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
   @@color:blue;提示二：將上下聯轉換成的英文字串起來，並加以斷句可以得知「字」是藏在某處之下，找出對應處其下方的文字由左至右排列即為答案。@@
@@ -804,7 +847,7 @@ predisplay["Menu Return"] = function (taskName) {
           &lt;/div&gt;
          &lt;&lt;/timed&gt;&gt;
   &lt;&lt;/linkappend&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="第二關1" tags="" position="1300,100" size="100,100">&quot;黑雲，信義街開始下雨。&quot;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="第二關1" tags="" position="1300,100" size="100,100">&quot;黑雲，信義街開始下雨。&quot;
 
 林：下雨了，是雷陣雨嗎？一時半刻，雨勢不會變小，看來得找個地方躲雨。
 
@@ -862,7 +905,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：不要那麼用力拉我的手，痛！我知道，我們下一個去的地方是『白日夢工廠』。
 
-[[第二關2|第二關2]]</tw-passagedata><tw-passagedata pid="41" name="第二關2" tags="" position="1300,225" size="100,100">白日夢工廠就在代天府附近，第一眼看見的時候並沒有工廠那種高科技的感覺，反倒像是信義街隨處可以看見民房，我們走進工廠，裡頭堆滿許多『工具』、『植栽』、『樂器』等各種奇奇怪怪的東西。子寧說，白日夢工廠住著一位算命師，上知天文，下知地理，是一位博學多聞的人物。
+[[第二關2|第二關2]]</tw-passagedata><tw-passagedata pid="46" name="第二關2" tags="" position="1300,225" size="100,100">白日夢工廠就在代天府附近，第一眼看見的時候並沒有工廠那種高科技的感覺，反倒像是信義街隨處可以看見民房，我們走進工廠，裡頭堆滿許多『工具』、『植栽』、『樂器』等各種奇奇怪怪的東西。子寧說，白日夢工廠住著一位算命師，上知天文，下知地理，是一位博學多聞的人物。
 
 女：哎呀呀，子寧，今天帶客人來呀。
 
@@ -912,7 +955,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：好！
 
-李青拿出印著[[奇特圖案的紙條|第二關3]]，交給小凡。</tw-passagedata><tw-passagedata pid="42" name="第二關正確" tags="" position="1300,475" size="100,100">李青的儀式結束，『日記碎片』突然飛到我身邊，我觸碰碎片的當下，我又回到記憶之中，我站在祭壇，看到奶奶高舉著『法器』，眼前龐大的怪物⋯⋯就是『無支祁』，祂張牙舞爪，舉手投足都掀起驚濤駭浪。
+李青拿出印著[[奇特圖案的紙條|第二關3]]，交給小凡。</tw-passagedata><tw-passagedata pid="47" name="第二關正確" tags="" position="1300,475" size="100,100">李青的儀式結束，『日記碎片』突然飛到我身邊，我觸碰碎片的當下，我又回到記憶之中，我站在祭壇，看到奶奶高舉著『法器』，眼前龐大的怪物⋯⋯就是『無支祁』，祂張牙舞爪，舉手投足都掀起驚濤駭浪。
 
 李：你看見什麼？
 
@@ -928,7 +971,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 寧：小凡、小凡！
 
-[[第三關1|第三關1]]</tw-passagedata><tw-passagedata pid="43" name="第三關1" tags="" position="1500,100" size="100,100">我不知道身在何處？只感覺身體虛脫無力。
+[[第三關1|第三關1]]</tw-passagedata><tw-passagedata pid="48" name="第三關1" tags="" position="1500,100" size="100,100">我不知道身在何處？只感覺身體虛脫無力。
 
 等我有點力氣時，發現自己身在白色的空間裡。奶奶就站在我前方，我驚訝地抱著奶奶，想對她說的話有好多好多，可是奶奶僅僅只是點點頭，露出微笑，當我提到關於『無支祁』與『水禍』的話題時，奶奶臉色一變，嘴邊不斷地說著，我卻聽不見任何一個字⋯⋯我試著重複奶奶的口吻說道。
 
@@ -966,7 +1009,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 我並沒有把奶奶留給我的話告訴子寧。
 
-[[第三關2|第三關2]]</tw-passagedata><tw-passagedata pid="44" name="第三關2" tags="" position="1500,225" size="100,100">集福宮是信義街的在地公廟，主要奉祀的神明為上帝公(玄天上帝)，集福宮不單是一般我們所見街巷裡的廟宇，它同是台南家將文化其中一條支流，更有不少傳說原生於此，最有名是關於『貓妖』的傳說。
+[[第三關2|第三關2]]</tw-passagedata><tw-passagedata pid="49" name="第三關2" tags="" position="1500,225" size="100,100">集福宮是信義街的在地公廟，主要奉祀的神明為上帝公(玄天上帝)，集福宮不單是一般我們所見街巷裡的廟宇，它同是台南家將文化其中一條支流，更有不少傳說原生於此，最有名是關於『貓妖』的傳說。
 
 寧：『集福宮』到了。
 
@@ -1004,7 +1047,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 寧：喔，沒事，我剛才恍神了，走，我們去找『法器』。
 
-[[第三關3|第三關3]]</tw-passagedata><tw-passagedata pid="45" name="第三關正確" tags="" position="1500,475" size="100,100">當我蒐集完三樣『法器』，突然信義街天搖地動，我不知道發生了什麼事， 反倒子寧沒有任何反應，僅簡單地回應道：「封印解開了，當你蒐集『法器』的同時⋯⋯」我搞不清楚子寧的話。
+[[第三關3|第三關3]]</tw-passagedata><tw-passagedata pid="50" name="第三關正確" tags="" position="1500,475" size="100,100">當我蒐集完三樣『法器』，突然信義街天搖地動，我不知道發生了什麼事， 反倒子寧沒有任何反應，僅簡單地回應道：「封印解開了，當你蒐集『法器』的同時⋯⋯」我搞不清楚子寧的話。
 
 我們帶著『法器』回到集福宮，上帝公很滿意地點點說，只要趕在『無支 祁』的封印解除前，舉行儀式，『水禍』就會平息，並告知我們儀式舉行的時間，帶著『法器』來參加即可。
 
@@ -1024,23 +1067,23 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：子、子寧⋯⋯為什麼⋯⋯奶奶⋯⋯
 
-[[第四關1|第四關1]]</tw-passagedata><tw-passagedata pid="46" name="第三關3" tags="" position="1500,350" size="100,100">三樣法器分別放在地圖上三處靈氣充沛的位置，打開@@color:red; &lt;&lt;hovertip &#39;在道具包中找出線索&#39;&gt;&gt;上帝公給的線索&lt;&lt;/hovertip&gt;&gt;@@，找到他們吧！
+[[第四關1|第四關1]]</tw-passagedata><tw-passagedata pid="51" name="第三關3" tags="" position="1500,350" size="100,100">三樣法器分別放在地圖上三處靈氣充沛的位置，打開@@color:red; &lt;&lt;hovertip &#39;在道具包中找出線索&#39;&gt;&gt;上帝公給的線索&lt;&lt;/hovertip&gt;&gt;@@，找到他們吧！
 
 [[我找齊所有道具了！|第三關正確]]
 
 提醒：點擊背包可查閱已獲得的道具
 
-&lt;&lt;linkreplace &quot;已經打開線索，但是需要提示…&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索1&quot;&gt;&gt; &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="第三關線索1" tags="" position="1500,600" size="100,100">你聽過數獨嗎?在數獨遊戲中，每一行、列都須包含數字1～9，不能缺少也不能重複，這道謎題似乎就和數獨謎題很類似呢？
+&lt;&lt;linkreplace &quot;已經打開線索，但是需要提示…&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索1&quot;&gt;&gt; &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="第三關線索1" tags="" position="1500,600" size="100,100">你聽過數獨嗎?在數獨遊戲中，每一行、列都須包含數字1～9，不能缺少也不能重複，這道謎題似乎就和數獨謎題很類似呢？
 
 
-&lt;&lt;linkreplace &quot;努力了很久，還是找不到正確位置，可以再多給一點提示嗎？&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="第三關線索2" tags="" position="1500,700" size="100,100">好吧，告訴你幾個空格的數字吧，記好啦──
+&lt;&lt;linkreplace &quot;努力了很久，還是找不到正確位置，可以再多給一點提示嗎？&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="第三關線索2" tags="" position="1500,700" size="100,100">好吧，告訴你幾個空格的數字吧，記好啦──
 由上往下數來第8格，由左向右數來第2格：9
 由上往下數來第4格，由左向右數來第4格：3
 由上往下數來第3格，由左向右數來第8格：3
 
 也許你卡住的是 L4-1這樣的符號？ L4-1代表的是第4行的數字1喔！
 
-&lt;&lt;linkreplace &quot;似乎是靠近答案了一點了但又覺得無限遙遠，我不行啦告訴我答案吧&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索3&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="第三關線索3" tags="圖" position="1500,800" size="100,100">真的要看答案嗎？不再思考一下？
+&lt;&lt;linkreplace &quot;似乎是靠近答案了一點了但又覺得無限遙遠，我不行啦告訴我答案吧&quot;&gt;&gt;&lt;&lt;include &quot;第三關線索3&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="第三關線索3" tags="圖" position="1500,800" size="100,100">真的要看答案嗎？不再思考一下？
 
 &lt;&lt;linkreplace &quot;對我要看答案&quot;&gt;&gt;
 
@@ -1048,7 +1091,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 &lt;img src=&quot;https://drive.google.com/uc?id=10xhoo6px9tWky81Pde-alcWITgr8hyuM&quot; width=&quot;250&quot;&gt;
 
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="第二關3" tags="" position="1300,355" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="第二關3" tags="" position="1300,355" size="100,100">&lt;div class=&quot;say&quot;&gt;
 	&lt;img src=&quot;https://img.favpng.com/22/7/0/cartoon-human-behavior-figurine-character-png-favpng-w6iFL4XTrcDqcWrZLgnjeHfUL.jpg&quot;&gt;
 	&lt;p&gt;李青&lt;/p&gt;
 	&lt;p&gt;
@@ -1072,7 +1115,7 @@ predisplay["Menu Return"] = function (taskName) {
 		  &lt;&lt;goto &quot;第二關錯誤&quot;&gt;&gt;\
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/button&gt;&gt;\
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="51" name="第二關錯誤" tags="" position="1300,600" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="56" name="第二關錯誤" tags="" position="1300,600" size="100,100">&lt;div class=&quot;say&quot;&gt;
 	&lt;img src=&quot;https://img.favpng.com/22/7/0/cartoon-human-behavior-figurine-character-png-favpng-w6iFL4XTrcDqcWrZLgnjeHfUL.jpg&quot;&gt;
 	&lt;p&gt;李青&lt;/p&gt;
 	&lt;p&gt;
@@ -1089,7 +1132,7 @@ predisplay["Menu Return"] = function (taskName) {
 還要提示…真受不了你。第一個字是「玄」啦。夠明顯了吧。
 	&lt;/p&gt;
 &lt;/div&gt;
-  &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="第四關2" tags="" position="1700,100" size="100,100">終於抓到貓咪怪盜，把范無赦的『法器』拿回來，欣喜之餘，我詢問貓咪怪怪盜關於子寧的下落。
+  &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="第四關2" tags="" position="1700,100" size="100,100">終於抓到貓咪怪盜，把范無赦的『法器』拿回來，欣喜之餘，我詢問貓咪怪怪盜關於子寧的下落。
 
 貓：喵⋯⋯想不到我依然無法阻止命運的安排⋯⋯是血脈的因緣嗎？又輪到妳的後人來保護信義街喵⋯⋯
 
@@ -1111,7 +1154,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 &quot;無支祁出現。&quot;
 
-[[第四關3|第四關3]]</tw-passagedata><tw-passagedata pid="53" name="第四關3" tags="" position="1700,224" size="100,100">林：你就是無支祁⋯⋯
+[[第四關3|第四關3]]</tw-passagedata><tw-passagedata pid="58" name="第四關3" tags="" position="1700,224" size="100,100">林：你就是無支祁⋯⋯
 
 無：哼，把『法器』交出來，不然休怪我對你不客氣。
 
@@ -1133,7 +1176,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 留下我與體溫逐漸消失的子寧⋯⋯
 
-[[第五關1|第五關1]]</tw-passagedata><tw-passagedata pid="54" name="第五關1" tags="" position="1900,100" size="100,100">我是林小凡，我沒想到自己被捲入信義街背後的故事，在這裡，我遇到很多人、事、物⋯⋯
+[[第五關1|第五關1]]</tw-passagedata><tw-passagedata pid="59" name="第五關1" tags="" position="1900,100" size="100,100">我是林小凡，我沒想到自己被捲入信義街背後的故事，在這裡，我遇到很多人、事、物⋯⋯
 
 不過我相信，所有的事情都有一個結局，每一個結局代表通往不同的世界。
 
@@ -1151,10 +1194,10 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：我瞭解了，奶奶。
 
-[[第五關2|第五關2]]</tw-passagedata><tw-passagedata pid="55" name="第五關2" tags="" position="1900,225" size="100,100">奶：殘缺的面譜，屬於一名被封印的水神，你所蒐集的法器就是歸他所有。缺少的元素，藏在日記的碎片當中。把這些元素找出來，招喚出阻擋水患的守護神，八爺吧！
+[[第五關2|第五關2]]</tw-passagedata><tw-passagedata pid="60" name="第五關2" tags="" position="1900,225" size="100,100">奶：殘缺的面譜，屬於一名被封印的水神，你所蒐集的法器就是歸他所有。缺少的元素，藏在日記的碎片當中。把這些元素找出來，招喚出阻擋水患的守護神，八爺吧！
 
 [[不理日記碎片直接召喚八爺|第五關正確1]]
-[[召喚八爺|第五關3]]</tw-passagedata><tw-passagedata pid="56" name="第五關正確1" tags="" position="1900,485" size="100,100">我請李青照顧好子寧，自個拿起『法器』走向『兌悅門』，就跟奶奶當時封印無支祁的時候一樣，此時，烏雲遍佈，雷聲作響，無支祁挾著滔天巨浪席捲信義街。
+[[召喚八爺|第五關3]]</tw-passagedata><tw-passagedata pid="61" name="第五關正確1" tags="" position="1900,485" size="100,100">我請李青照顧好子寧，自個拿起『法器』走向『兌悅門』，就跟奶奶當時封印無支祁的時候一樣，此時，烏雲遍佈，雷聲作響，無支祁挾著滔天巨浪席捲信義街。
 
 『法器』是召喚能夠對抗無支祁的『神』。
 
@@ -1164,10 +1207,10 @@ predisplay["Menu Return"] = function (taskName) {
 
 此刻，巨大的八爺出現在無支祁面前。
 
-[[結局|結局]]</tw-passagedata><tw-passagedata pid="57" name="第五關3" tags="" position="1900,350" size="100,100">(拚碎片)
+[[結局|結局]]</tw-passagedata><tw-passagedata pid="62" name="第五關3" tags="" position="1900,350" size="100,100">(拚碎片)
 
 [[拚出碎片召喚八爺|第五關正確2]]
-[[檢查日記碎片|日記碎片]]</tw-passagedata><tw-passagedata pid="58" name="第五關正確2" tags="" position="1900,605" size="100,100">當所有『日記碎片』集結成家將臉譜時與『法器』產生共鳴，奇蹟就會發生，代表著『陰』與『陽』的兩位八爺降臨在兌悅門。
+[[檢查日記碎片|日記碎片]]</tw-passagedata><tw-passagedata pid="63" name="第五關正確2" tags="" position="1900,605" size="100,100">當所有『日記碎片』集結成家將臉譜時與『法器』產生共鳴，奇蹟就會發生，代表著『陰』與『陽』的兩位八爺降臨在兌悅門。
 
 陰與陽兩位八爺融合一體。
 
@@ -1181,7 +1224,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 信義街就恢復和平，可喜可賀，可口可樂，感謝八爺的努力。
 
-[[結局|結局]]</tw-passagedata><tw-passagedata pid="59" name="結局" tags="" position="2100,217" size="100,100">隨著『法器』發出萬丈光芒，無支祁消失在光芒之中，湧入街道的大水慢慢消退，信義街又恢復和平。
+[[結局|結局]]</tw-passagedata><tw-passagedata pid="64" name="結局" tags="" position="2100,217" size="100,100">隨著『法器』發出萬丈光芒，無支祁消失在光芒之中，湧入街道的大水慢慢消退，信義街又恢復和平。
 
 上帝公說，無支祁的消失意味著『水禍』將不再出現，不過，無支祁是人們貪念所引來的妖怪，如果人不好好愛惜信義街，又會有其他妖怪進入街道。這段話讓在場的人好好省思。
 
@@ -1203,58 +1246,58 @@ predisplay["Menu Return"] = function (taskName) {
 
 林：好痛！不要拉我的手。
 
-因此，我的街道旅行似乎還沒有結束。</tw-passagedata><tw-passagedata pid="60" name="第四關1" tags="" position="2800,600" size="200,200">貓咪怪盜狡猾地帶著道具逃跑了!
+因此，我的街道旅行似乎還沒有結束。</tw-passagedata><tw-passagedata pid="65" name="第四關1" tags="" position="2800,600" size="200,200">貓咪怪盜狡猾地帶著道具逃跑了!
 我想妖氣儀，應該可以派上用場...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;前往下一個地點(起點)]]</tw-passagedata><tw-passagedata pid="61" name="妖氣儀一" tags="" position="1750,775" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="62" name="前往下一個地點(起點)" tags="" position="3725,800" size="100,100">[[地點A]]
+[[前往下一個地點-&gt;前往下一個地點(起點)]]</tw-passagedata><tw-passagedata pid="66" name="妖氣儀一" tags="" position="1750,775" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="67" name="前往下一個地點(起點)" tags="" position="3725,800" size="100,100">[[地點A]]
 
 [[地點C]]
 
 [[地點D]]
 
-[[地點E]]</tw-passagedata><tw-passagedata pid="63" name="地點A" tags="" position="1950,850" size="100,100">來到了地點A，卻毫無發現貓咪怪盜的身影...
+[[地點E]]</tw-passagedata><tw-passagedata pid="68" name="地點A" tags="" position="1950,850" size="100,100">來到了地點A，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點2(地點A)]]</tw-passagedata><tw-passagedata pid="64" name="地點C" tags="" position="1950,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[前往下一個地點-&gt;下一個地點2(地點A)]]</tw-passagedata><tw-passagedata pid="69" name="地點C" tags="" position="1950,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="65" name="地點D" tags="" position="1950,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="70" name="地點D" tags="" position="1950,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="66" name="地點E" tags="" position="1950,1225" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="71" name="地點E" tags="" position="1950,1225" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="67" name="下一個地點2(地點A)" tags="" position="3725,925" size="100,100">[[地點B-&gt;地點B2]]
+[[回到上一個地點-&gt;第四關1]]</tw-passagedata><tw-passagedata pid="72" name="下一個地點2(地點A)" tags="" position="3725,925" size="100,100">[[地點B-&gt;地點B2]]
 
 [[地點D-&gt;地點D2]]
 
 [[地點E-&gt;地點E2]]
 
-[[地點F-&gt;地點F2]]</tw-passagedata><tw-passagedata pid="68" name="地點B2" tags="" position="2075,850" size="100,100">來到了地點B，卻毫無發現貓咪怪盜的身影...
+[[地點F-&gt;地點F2]]</tw-passagedata><tw-passagedata pid="73" name="地點B2" tags="" position="2075,850" size="100,100">來到了地點B，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點3(地點B)]]</tw-passagedata><tw-passagedata pid="69" name="地點D2" tags="" position="2075,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[前往下一個地點-&gt;下一個地點3(地點B)]]</tw-passagedata><tw-passagedata pid="74" name="地點D2" tags="" position="2075,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="70" name="地點E2" tags="" position="2075,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="75" name="地點E2" tags="" position="2075,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="71" name="地點F2" tags="" position="2075,1225" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="76" name="地點F2" tags="" position="2075,1225" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="72" name="妖氣儀三" tags="" position="1750,1025" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="73" name="妖氣儀二" tags="" position="1750,900" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="74" name="下一個地點3(地點B)" tags="" position="3725,1050" size="100,100">[[地點C-&gt;地點C3]]
+[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="77" name="妖氣儀三" tags="" position="1750,1025" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="78" name="妖氣儀二" tags="" position="1750,900" size="100,100">&lt;img src=&quot;https://imgservice.suning.cn/uimg1/b2c/image/aspxBLTTXMli3oRu0Fal_w==.jpg_800w_800h_4e&quot; width=&quot;寬(px)&quot; height=&quot;(高)px&quot; &gt;</tw-passagedata><tw-passagedata pid="79" name="下一個地點3(地點B)" tags="" position="3725,1050" size="100,100">[[地點C-&gt;地點C3]]
 
 [[地點E-&gt;地點E3]]
 
 [[地點F-&gt;地點F3]]
 
-[[地點A-&gt;地點A3]]</tw-passagedata><tw-passagedata pid="75" name="地點C3" tags="" position="2200,850" size="100,100">來到了地點C，卻毫無發現貓咪怪盜的身影...
+[[地點A-&gt;地點A3]]</tw-passagedata><tw-passagedata pid="80" name="地點C3" tags="" position="2200,850" size="100,100">來到了地點C，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點4(地點C)]]</tw-passagedata><tw-passagedata pid="76" name="地點E3" tags="" position="2200,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[前往下一個地點-&gt;下一個地點4(地點C)]]</tw-passagedata><tw-passagedata pid="81" name="地點E3" tags="" position="2200,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="77" name="地點F3" tags="" position="2200,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="82" name="地點F3" tags="" position="2200,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="78" name="地點A3" tags="" position="2200,1225" size="100,100">嗶! 嗶! 嗶! 
+[[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="83" name="地點A3" tags="" position="2200,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1266,19 +1309,19 @@ predisplay["Menu Return"] = function (taskName) {
 
 /* 聲音 */
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="下一個地點4(地點C)" tags="" position="3725,1175" size="100,100">[[地點D-&gt;地點D4]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="下一個地點4(地點C)" tags="" position="3725,1175" size="100,100">[[地點D-&gt;地點D4]]
 
 [[地點F-&gt;地點F4]]
 
 [[地點A-&gt;地點A4]]
 
-[[地點B-&gt;地點B4]]</tw-passagedata><tw-passagedata pid="80" name="地點D4" tags="" position="2325,850" size="100,100">來到了地點D，卻毫無發現貓咪怪盜的身影...
+[[地點B-&gt;地點B4]]</tw-passagedata><tw-passagedata pid="85" name="地點D4" tags="" position="2325,850" size="100,100">來到了地點D，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點5(地點D)]]</tw-passagedata><tw-passagedata pid="81" name="地點F4" tags="" position="2325,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
+[[前往下一個地點-&gt;下一個地點5(地點D)]]</tw-passagedata><tw-passagedata pid="86" name="地點F4" tags="" position="2325,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點C3]]</tw-passagedata><tw-passagedata pid="82" name="地點A4" tags="" position="2325,1100" size="100,100">嗶! 嗶! 嗶! 
+[[回到上一個地點-&gt;地點C3]]</tw-passagedata><tw-passagedata pid="87" name="地點A4" tags="" position="2325,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1291,7 +1334,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 /* 聲音 */
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="地點B4" tags="" position="2325,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="地點B4" tags="" position="2325,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1303,17 +1346,17 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="下一個地點5(地點D)" tags="" position="3725,1300" size="100,100">[[地點E-&gt;地點E5]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="下一個地點5(地點D)" tags="" position="3725,1300" size="100,100">[[地點E-&gt;地點E5]]
 
 [[地點A-&gt;地點A5]]
 
 [[地點B-&gt;地點B5]]
 
-[[地點C-&gt;地點C5]]</tw-passagedata><tw-passagedata pid="85" name="地點E5" tags="" position="2450,850" size="100,100">來到了地點E，卻毫無發現貓咪怪盜的身影...
+[[地點C-&gt;地點C5]]</tw-passagedata><tw-passagedata pid="90" name="地點E5" tags="" position="2450,850" size="100,100">來到了地點E，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點6(地點E)]]</tw-passagedata><tw-passagedata pid="86" name="地點A5" tags="" position="2450,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點6(地點E)]]</tw-passagedata><tw-passagedata pid="91" name="地點A5" tags="" position="2450,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1325,7 +1368,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="地點B5" tags="" position="2450,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="地點B5" tags="" position="2450,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1337,7 +1380,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="地點C5" tags="" position="2450,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="地點C5" tags="" position="2450,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1349,17 +1392,17 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="下一個地點6(地點E)" tags="" position="3725,1425" size="100,100">[[地點F-&gt;地點F6]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="下一個地點6(地點E)" tags="" position="3725,1425" size="100,100">[[地點F-&gt;地點F6]]
 
 [[地點B-&gt;地點B6]]
 
 [[地點C-&gt;地點C6]]
 
-[[地點D-&gt;地點D6]]</tw-passagedata><tw-passagedata pid="90" name="地點F6" tags="" position="2575,850" size="100,100">來到了地點F，卻毫無發現貓咪怪盜的身影...
+[[地點D-&gt;地點D6]]</tw-passagedata><tw-passagedata pid="95" name="地點F6" tags="" position="2575,850" size="100,100">來到了地點F，卻毫無發現貓咪怪盜的身影...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點7(地點F)]]</tw-passagedata><tw-passagedata pid="91" name="地點B6" tags="" position="2575,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點7(地點F)]]</tw-passagedata><tw-passagedata pid="96" name="地點B6" tags="" position="2575,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1371,7 +1414,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="地點C6" tags="" position="2575,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="地點C6" tags="" position="2575,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1383,7 +1426,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="地點D6" tags="" position="2575,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="地點D6" tags="" position="2575,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1395,17 +1438,17 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="下一個地點7(地點F)" tags="" position="3725,1550" size="100,100">[[地點A-&gt;地點A7]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="下一個地點7(地點F)" tags="" position="3725,1550" size="100,100">[[地點A-&gt;地點A7]]
 
 [[地點C-&gt;地點C7]]
 
 [[地點D-&gt;地點D7]]
 
-[[地點E-&gt;地點E7]]</tw-passagedata><tw-passagedata pid="95" name="地點A7" tags="" position="2800,850" size="100,100">回到了地點A，發現貓咪怪盜似乎朝著地點B的方向前進...
+[[地點E-&gt;地點E7]]</tw-passagedata><tw-passagedata pid="100" name="地點A7" tags="" position="2800,850" size="100,100">回到了地點A，發現貓咪怪盜似乎朝著地點B的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點8(地點A7)]]</tw-passagedata><tw-passagedata pid="96" name="地點C7" tags="" position="2800,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點8(地點A7)]]</tw-passagedata><tw-passagedata pid="101" name="地點C7" tags="" position="2800,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1417,7 +1460,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="地點D7" tags="" position="2800,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="102" name="地點D7" tags="" position="2800,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1429,7 +1472,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="地點E7" tags="" position="2800,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="地點E7" tags="" position="2800,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1441,7 +1484,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="下一個地點8(地點A7)" tags="" position="3850,800" size="100,100">[[地點B-&gt;地點B8]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="下一個地點8(地點A7)" tags="" position="3850,800" size="100,100">[[地點B-&gt;地點B8]]
 
 [[地點D-&gt;地點D8]]
 
@@ -1449,11 +1492,11 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點F-&gt;地點F8]]
 
-[[地點C-&gt;地點C8]]</tw-passagedata><tw-passagedata pid="100" name="地點B8" tags="" position="2925,850" size="100,100">來到了地點B，發現貓咪怪盜似乎朝著地點C的方向前進...
+[[地點C-&gt;地點C8]]</tw-passagedata><tw-passagedata pid="105" name="地點B8" tags="" position="2925,850" size="100,100">來到了地點B，發現貓咪怪盜似乎朝著地點C的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點9(地點B8)]]</tw-passagedata><tw-passagedata pid="101" name="地點D8" tags="" position="2925,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點9(地點B8)]]</tw-passagedata><tw-passagedata pid="106" name="地點D8" tags="" position="2925,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1465,7 +1508,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="102" name="地點E8" tags="" position="2925,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="地點E8" tags="" position="2925,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1477,7 +1520,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="地點F8" tags="" position="2925,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="地點F8" tags="" position="2925,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1489,7 +1532,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="地點C8" tags="" position="2925,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="下一個地點9(地點B8)" tags="" position="3850,925" size="100,100">[[地點C-&gt;地點C9]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="地點C8" tags="" position="2925,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="110" name="下一個地點9(地點B8)" tags="" position="3850,925" size="100,100">[[地點C-&gt;地點C9]]
 
 [[地點E-&gt;地點E9]]
 
@@ -1497,11 +1540,11 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點A-&gt;地點A9]]
 
-[[地點D-&gt;地點D9]]</tw-passagedata><tw-passagedata pid="106" name="地點C9" tags="" position="3050,850" size="100,100">來到了地點C，發現貓咪怪盜似乎朝著地點D的方向前進...
+[[地點D-&gt;地點D9]]</tw-passagedata><tw-passagedata pid="111" name="地點C9" tags="" position="3050,850" size="100,100">來到了地點C，發現貓咪怪盜似乎朝著地點D的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點10(地點C9)]]</tw-passagedata><tw-passagedata pid="107" name="地點E9" tags="" position="3050,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點10(地點C9)]]</tw-passagedata><tw-passagedata pid="112" name="地點E9" tags="" position="3050,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1513,7 +1556,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="地點F9" tags="" position="3050,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="113" name="地點F9" tags="" position="3050,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1525,7 +1568,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="地點A9" tags="" position="3050,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="地點A9" tags="" position="3050,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1537,7 +1580,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="110" name="地點D9" tags="" position="3050,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="下一個地點10(地點C9)" tags="" position="3850,1050" size="100,100">[[地點D-&gt;地點D10]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="115" name="地點D9" tags="" position="3050,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="下一個地點10(地點C9)" tags="" position="3850,1050" size="100,100">[[地點D-&gt;地點D10]]
 
 [[地點F-&gt;地點F10]]
 
@@ -1545,11 +1588,11 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點B-&gt;地點B10]]
 
-[[地點E-&gt;地點E10]]</tw-passagedata><tw-passagedata pid="112" name="地點D10" tags="" position="3175,850" size="100,100">來到了地點D，發現貓咪怪盜似乎朝著地點E的方向前進...
+[[地點E-&gt;地點E10]]</tw-passagedata><tw-passagedata pid="117" name="地點D10" tags="" position="3175,850" size="100,100">來到了地點D，發現貓咪怪盜似乎朝著地點E的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點11(地點D10)]]</tw-passagedata><tw-passagedata pid="113" name="地點F10" tags="" position="3175,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點11(地點D10)]]</tw-passagedata><tw-passagedata pid="118" name="地點F10" tags="" position="3175,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1561,7 +1604,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="地點A10" tags="" position="3175,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="119" name="地點A10" tags="" position="3175,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1573,7 +1616,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="115" name="地點B10" tags="" position="3175,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="120" name="地點B10" tags="" position="3175,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1585,7 +1628,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="地點E10" tags="" position="3175,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="下一個地點11(地點D10)" tags="" position="3850,1175" size="100,100">[[地點E-&gt;地點E11]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="地點E10" tags="" position="3175,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="122" name="下一個地點11(地點D10)" tags="" position="3850,1175" size="100,100">[[地點E-&gt;地點E11]]
 
 [[地點A-&gt;地點A11]]
 
@@ -1593,11 +1636,11 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點C-&gt;地點C11]]
 
-[[地點F-&gt;地點F11]]</tw-passagedata><tw-passagedata pid="118" name="地點E11" tags="" position="3300,850" size="100,100">來到了地點E，發現貓咪怪盜似乎朝著地點F的方向前進...
+[[地點F-&gt;地點F11]]</tw-passagedata><tw-passagedata pid="123" name="地點E11" tags="" position="3300,850" size="100,100">來到了地點E，發現貓咪怪盜似乎朝著地點F的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點12(地點E11)]]</tw-passagedata><tw-passagedata pid="119" name="地點A11" tags="" position="3300,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點12(地點E11)]]</tw-passagedata><tw-passagedata pid="124" name="地點A11" tags="" position="3300,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1608,19 +1651,7 @@ predisplay["Menu Return"] = function (taskName) {
 [[回到上一個地點-&gt;地點D10]]
 
 
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="120" name="地點B11" tags="" position="3300,1100" size="100,100">嗶! 嗶! 嗶! 
-
-這是什麼聲音...?
-
-[⚠ 警告 : 妖氣偵測量極低]&lt;click1|
-
-(click: ?click1)[似乎貓咪怪盜曾來過此處，但幾乎無妖氣的殘留，儀器無法顯示數值。]
-
-[[回到上一個地點-&gt;地點D10]]
-
-
-&lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="地點C11" tags="" position="3300,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="125" name="地點B11" tags="" position="3300,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1632,7 +1663,19 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="122" name="地點F11" tags="" position="3300,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="123" name="下一個地點12(地點E11)" tags="" position="3850,1300" size="100,100">[[地點F-&gt;地點F12]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="地點C11" tags="" position="3300,1225" size="100,100">嗶! 嗶! 嗶! 
+
+這是什麼聲音...?
+
+[⚠ 警告 : 妖氣偵測量極低]&lt;click1|
+
+(click: ?click1)[似乎貓咪怪盜曾來過此處，但幾乎無妖氣的殘留，儀器無法顯示數值。]
+
+[[回到上一個地點-&gt;地點D10]]
+
+
+&lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="地點F11" tags="" position="3300,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="128" name="下一個地點12(地點E11)" tags="" position="3850,1300" size="100,100">[[地點F-&gt;地點F12]]
 
 [[地點B-&gt;地點B12]]
 
@@ -1640,11 +1683,11 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點D-&gt;地點D12]]
 
-[[地點A-&gt;地點A12]]</tw-passagedata><tw-passagedata pid="124" name="地點F12" tags="" position="3425,850" size="100,100">來到了地點F，發現貓咪怪盜似乎朝著地點A的方向前進...
+[[地點A-&gt;地點A12]]</tw-passagedata><tw-passagedata pid="129" name="地點F12" tags="" position="3425,850" size="100,100">來到了地點F，發現貓咪怪盜似乎朝著地點A的方向前進...
 
 [[查看妖氣儀-&gt;妖氣儀一]]
 
-[[前往下一個地點-&gt;下一個地點13(地點E12)]]</tw-passagedata><tw-passagedata pid="125" name="地點B12" tags="" position="3425,975" size="100,100">嗶! 嗶! 嗶! 
+[[前往下一個地點-&gt;下一個地點13(地點E12)]]</tw-passagedata><tw-passagedata pid="130" name="地點B12" tags="" position="3425,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1656,7 +1699,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="地點C12" tags="" position="3425,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="131" name="地點C12" tags="" position="3425,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1668,7 +1711,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="地點D12" tags="" position="3425,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="132" name="地點D12" tags="" position="3425,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1680,7 +1723,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="128" name="地點A12" tags="" position="3425,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="下一個地點13(地點E12)" tags="" position="3850,1425" size="100,100">[[地點A-&gt;地點A7]]
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="133" name="地點A12" tags="" position="3425,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="134" name="下一個地點13(地點E12)" tags="" position="3850,1425" size="100,100">[[地點A-&gt;地點A7]]
 
 [[地點C-&gt;地點C13]]
 
@@ -1688,7 +1731,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 [[地點E-&gt;地點E13]]
 
-[[地點B-&gt;地點B13]]</tw-passagedata><tw-passagedata pid="130" name="地點C13" tags="" position="3550,975" size="100,100">嗶! 嗶! 嗶! 
+[[地點B-&gt;地點B13]]</tw-passagedata><tw-passagedata pid="135" name="地點C13" tags="" position="3550,975" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1700,7 +1743,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="131" name="地點D13" tags="" position="3550,1100" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="136" name="地點D13" tags="" position="3550,1100" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1712,7 +1755,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="132" name="地點E13" tags="" position="3550,1225" size="100,100">嗶! 嗶! 嗶! 
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="137" name="地點E13" tags="" position="3550,1225" size="100,100">嗶! 嗶! 嗶! 
 
 這是什麼聲音...?
 
@@ -1724,7 +1767,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 
 &lt;&lt;cacheaudio &quot;bebebe&quot; &quot;http://ys.yisell.com/yisell/pays2018050819052088/sound/yisell_sound_2008090615211296200_88012.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="133" name="地點B13" tags="" position="3549,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata></tw-storydata>
+&lt;&lt;audio &quot;bebebe&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="138" name="地點B13" tags="" position="3549,1350" size="100,100">&lt;&lt;include &quot;第四關1&quot;&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},errorPrologRegExp=/^(?:(?:uncaught\s+(?:exception:\s+)?)?\w*(?:error|exception|_err):\s+)+/i,Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(errorPrologRegExp,"")+".":": unknown error."),"object"===(void 0===n?"undefined":_typeof(n))&&null!==n&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}(),Patterns=function(){var e=function(){var e=new Map([[" ","\\u0020"],["\f","\\f"],["\n","\\n"],["\r","\\r"],["\t","\\t"],["\v","\\v"],[" ","\\u00a0"],[" ","\\u1680"],["᠎","\\u180e"],[" ","\\u2000"],[" ","\\u2001"],[" ","\\u2002"],[" ","\\u2003"],[" ","\\u2004"],[" ","\\u2005"],[" ","\\u2006"],[" ","\\u2007"],[" ","\\u2008"],[" ","\\u2009"],[" ","\\u200a"],["\u2028","\\u2028"],["\u2029","\\u2029"],[" ","\\u202f"],[" ","\\u205f"],["　","\\u3000"],["\ufeff","\\ufeff"]]),t=/^\s$/,r="";return e.forEach(function(e,n){t.test(n)||(r+=e)}),r?"[\\s"+r+"]":"\\s"}(),t="[\\u0020\\f\\t\\v\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000\\ufeff]",r="\\s"===e?"\\S":e.replace(/^\[/,"[^"),n="[0-9A-Z_a-z\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u00ff\\u0150\\u0170\\u0151\\u0171]",a=n.replace("\\-",""),i=function(){return"("+n+"+)\\(([^\\)\\|\\n]+)\\):|"+t+"*("+n+"+)"+t+"*:([^;\\|\\n]+);|"+t+"*((?:[#.]"+n+"+"+t+"*)+);"}();return Object.freeze({space:e,spaceNoTerminator:t,lineTerminator:"[\\n\\r\\u2028\\u2029]",notSpace:r,anyChar:"(?:.|[\\n\\r\\u2028\\u2029])",anyLetter:n,anyLetterStrict:a,identifierFirstChar:"[$A-Z_a-z]",identifierNextChar:"[$0-9A-Z_a-z]",identifier:"[$A-Z_a-z][$0-9A-Z_a-z]*",variableSigil:"[$_]",variable:"[$_][$A-Z_a-z][$0-9A-Z_a-z]*",macroName:"[A-Za-z][\\w-]*|[=-]",templateName:"[A-Za-z][\\w-]*",cssIdOrClassSigil:"[#.]",cssImage:"\\[[<>]?[Ii][Mm][Gg]\\[(?:\\s|\\S)*?\\]\\]+",inlineCss:i,url:"(?:file|https?|mailto|ftp|javascript|irc|news|data):[^\\s'\"]+"})}();!function(){function e(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n=void 0===t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var t=function(){function e(e,n){var a=String(e);if(!a)return a;switch(n){case"start":return t.test(a)?a.replace(t,""):a;case"end":return r.test(a)?a.replace(r,""):a;default:throw new Error('_trimString called with incorrect where parameter value: "'+n+'"')}}var t=new RegExp("^"+Patterns.space+Patterns.space+"*"),r=new RegExp(""+Patterns.space+Patterns.space+"*$");return e}();Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,writable:!0,value:function(){function e(){if(null==this)throw new TypeError("Array.prototype.flat called on null or undefined");var t=0===arguments.length?1:Number(arguments[0])||0;return t<1?Array.prototype.slice.call(this):Array.prototype.reduce.call(this,function(r,n){return n instanceof Array?r.push.apply(r,_toConsumableArray(e.call(n,t-1))):r.push(n),r},[])}return e}()}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatMap called on null or undefined");return Array.prototype.map.apply(this,arguments).flat()}}),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(n===t||n!==n&&t!==t)return!0}return!1}}),Object.entries||Object.defineProperty(Object,"entries",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.entries object parameter must be an object");return Object.keys(e).map(function(t){return[t,e[t]]})}}),Object.fromEntries||Object.defineProperty(Object,"fromEntries",{configurable:!0,writable:!0,value:function(e){return Array.from(e).reduce(function(e,t){if(Object(t)!==t)throw new TypeError("Object.fromEntries iterable parameter must yield objects");return t[0]in e?Object.defineProperty(e,t[0],{configurable:!0,enumerable:!0,writable:!0,value:t[1]}):e[t[0]]=t[1],e},{})}}),Object.getOwnPropertyDescriptors||Object.defineProperty(Object,"getOwnPropertyDescriptors",{configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Object.getOwnPropertyDescriptors object parameter is null or undefined");var t=Object(e);return Reflect.ownKeys(t).reduce(function(e,r){var n=Object.getOwnPropertyDescriptor(t,r);return void 0!==n&&(r in e?Object.defineProperty(e,r,{configurable:!0,enumerable:!0,writable:!0,value:n}):e[r]=n),e},{})}}),Object.values||Object.defineProperty(Object,"values",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.values object parameter must be an object");return Object.keys(e).map(function(t){return e[t]})}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:e(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:n+e(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return t(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return t(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return t(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return t(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r)<0&&(r=0),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n)<0&&(n=e-1),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){return e[0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1))]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var e=Array.from(this);if(0===arguments.length)return e;var t=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),r=t.length;if(0===r)return e;for(var n=Array.prototype.indexOf,a=Array.prototype.push,i=0;i<r;++i){var o=t[i];-1===n.call(e,o)&&a.call(e,o)}return e}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;-1!==(r=e.call(this,t,r));)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.concat.apply([],arguments),r=t.length,n=[],a=0;a<e;++a)for(var i=this[a],o=0;o<r;++o){var s=t[o];if(i===s||i!==i&&s!==s){n.push(a);break}}for(var u=[],l=0,c=n.length;l<c;++l)u[l]=this[n[l]];for(var d=Array.prototype.splice,f=n.length-1;f>=0;--f)d.call(this,n[f],1);return u}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"deleteWith",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.deleteWith called on null or undefined");if("function"!=typeof e)throw new Error("Array.prototype.deleteWith predicate parameter must be a function");var r=this.length>>>0;if(0===r)return[];for(var n=Array.prototype.splice,a=[],i=[],o=0;o<r;++o)e.call(t,this[o],o,this)&&(i.push(this[o]),a.push(o));for(var s=a.length-1;s>=0;--s)n.call(this,a[s],1);return i}}),Object.defineProperty(Array.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.first called on null or undefined");if(0!=this.length>>>0)return this[0]}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.last called on null or undefined");var e=this.length>>>0;if(0!==e)return this[e-1]}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do{a.push(n.call(this,_random(0,i--),1)[0])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){return this[0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)))]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do{o=_random(0,i)}while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.unshift,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function(e,t,r){var n=Number(e);return Number.isNaN(n)?NaN:n.clamp(t,r)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch(void 0===i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return-1!==String.prototype.indexOf.apply(this,arguments)}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;-1!==(n=t.call(this,e,n));)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.first called on null or undefined");return _getCodePointStartAndEnd(String(this),0).char}}),Object.defineProperty(String.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.last called on null or undefined");var e=String(this);return _getCodePointStartAndEnd(e,e.length-1).char}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n)<0&&(a=0):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return void 0!==r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.flat.call(this,1/0)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Opera:!t&&("object"===_typeof(window.operamini)||e.includes("opera mini")),Windows:t||/iemobile|wpdesktop/.test(e),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Opera||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null,u=e.includes("vivaldi");return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s,isVivaldi:u})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&!Browser.isMobile.any()&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),r=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),n=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),a=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}(),i=function(){try{return"ontouchstart"in window||!!window.DocumentTouch&&document instanceof window.DocumentTouch||!!navigator.maxTouchPoints||!!navigator.msMaxTouchPoints}catch(e){}return!1}(),o=function(){try{for(var e=new Map([["transition","transitionend"],["MSTransition","msTransitionEnd"],["WebkitTransition","webkitTransitionEnd"],["MozTransition","transitionend"]]),t=[].concat(_toConsumableArray(e.keys())),r=document.createElement("div"),n=0;n<t.length;++n)if(r.style[t[n]]!==undefined)return e.get(t[n])}catch(e){}return!1}();return Object.freeze({audio:e,fileAPI:t,geolocation:r,mutationObserver:n,performance:a,touch:i,transitionEndEvent:o})}(),Visibility=function(){function e(){return a}function t(){return a&&document[a.stateProperty]||"visible"}function r(){return Boolean(a)}function n(){return Boolean(a&&document[a.hiddenProperty])}var a=function(){try{return Object.freeze([{hiddenProperty:"hidden",stateProperty:"visibilityState",changeEvent:"visibilitychange"},{hiddenProperty:"webkitHidden",stateProperty:"webkitVisibilityState",changeEvent:"webkitvisibilitychange"},{hiddenProperty:"mozHidden",stateProperty:"mozVisibilityState",changeEvent:"mozvisibilitychange"},{hiddenProperty:"msHidden",stateProperty:"msVisibilityState",changeEvent:"msvisibilitychange"}].find(function(e){return e.hiddenProperty in document}))}catch(e){}return undefined}();return Object.freeze(Object.defineProperties({},{vendor:{get:e},state:{get:t},isEnabled:{value:r},isHidden:{value:n},hiddenProperty:{value:a&&a.hiddenProperty},stateProperty:{value:a&&a.stateProperty},changeEvent:{value:a&&a.changeEvent}}))}(),Fullscreen=function(){function e(e){var t=e||document.documentElement;return t===document.documentElement&&("msRequestFullscreen"===f.requestFn||Browser.isOpera&&Browser.operaVersion<15)&&(t=document.body),t}function t(){return f}function r(){return(f||null)&&document[f.element]}function n(){return Boolean(f&&document[f.isEnabled])}function a(){return Boolean(f&&document[f.element])}function i(t,r){var n=this;if(!f)return Promise.reject(new Error("fullscreen not supported"));var i=e(r);if("function"!=typeof i[f.requestFn])return Promise.reject(new Error("fullscreen not supported"));if(a())return Promise.resolve();if(p())return i[f.requestFn](t);var o=".Fullscreen_requestFullscreen";return new Promise(function(e,r){jQuery(i).off(o).one(""+f.errorEvent+o+" "+f.changeEvent+o,function(t){jQuery(n).off(o),t.type===f.errorEvent?r(new Error("unknown fullscreen request error")):e()}),i[f.requestFn](t)})}function o(){var e=this;if(!f||"function"!=typeof document[f.exitFn])return Promise.reject(new TypeError("fullscreen not supported"));if(!a())return Promise.reject(new TypeError("fullscreen mode not active"));if(p())return document[f.exitFn]();var t=".Fullscreen_exitFullscreen";return new Promise(function(r,n){jQuery(document).off(t).one(""+f.errorEvent+t+" "+f.changeEvent+t,function(a){jQuery(e).off(t),a.type===f.errorEvent?n(new Error("unknown fullscreen exit error")):r()}),document[f.exitFn]()})}function s(e,t){return a()?o():i(e,t)}function u(t,r){if(f){var n=e(r);$(n).on(f.changeEvent,t)}}function l(t,r){if(f){var n=e(r);t?$(n).off(f.changeEvent,t):$(n).off(f.changeEvent)}}function c(t,r){if(f){var n=e(r);$(n).on(f.errorEvent,t)}}function d(t,r){if(f){var n=e(r);t?$(n).off(f.errorEvent,t):$(n).off(f.errorEvent)}}var f=function(){try{return Object.freeze([{isEnabled:"fullscreenEnabled",element:"fullscreenElement",requestFn:"requestFullscreen",exitFn:"exitFullscreen",changeEvent:"fullscreenchange",errorEvent:"fullscreenerror"},{isEnabled:"webkitFullscreenEnabled",element:"webkitFullscreenElement",requestFn:"webkitRequestFullscreen",exitFn:"webkitExitFullscreen",changeEvent:"webkitfullscreenchange",errorEvent:"webkitfullscreenerror"},{isEnabled:"mozFullScreenEnabled",element:"mozFullScreenElement",requestFn:"mozRequestFullScreen",exitFn:"mozCancelFullScreen",changeEvent:"mozfullscreenchange",errorEvent:"mozfullscreenerror"},{isEnabled:"msFullscreenEnabled",element:"msFullscreenElement",requestFn:"msRequestFullscreen",exitFn:"msExitFullscreen",changeEvent:"MSFullscreenChange",errorEvent:"MSFullscreenError"}].find(function(e){return e.isEnabled in document}))}catch(e){}return undefined}(),p=function(){function e(){if(null!==t)return t;if(t=!1,f)try{var e=document.exitFullscreen();e.catch(function(){}),t=e instanceof Promise}catch(e){}return t}var t=null;return e}();return Object.freeze(Object.defineProperties({},{vendor:{get:t},element:{get:r},isEnabled:{value:n},isFullscreen:{value:a},request:{value:i},exit:{value:o},toggle:{value:s},onChange:{value:u},offChange:{value:l},onError:{value:c},offError:{value:d}}))}(),_ref3=function(){function e(e){for(var t=e.cloneNode(!0),r=document.createDocumentFragment(),n=void 0;null!==(n=t.firstChild);){if(n.nodeType===Node.ELEMENT_NODE)switch(n.nodeName.toUpperCase()){case"BR":case"DIV":case"P":r.appendChild(document.createTextNode(" "))}r.appendChild(n)}return r.textContent}function t(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)return e;if(e instanceof String)return String(e);if(e instanceof Number)return Number(e);if(e instanceof Boolean)return Boolean(e);if("function"==typeof e.clone)return e.clone(!0);if(e.nodeType&&"function"==typeof e.cloneNode)return e.cloneNode(!0);var r=void 0;return e instanceof Array?r=new Array(e.length):e instanceof Date?r=new Date(e.getTime()):e instanceof Map?(r=new Map,e.forEach(function(e,n){return r.set(n,t(e))})):e instanceof RegExp?r=new RegExp(e):e instanceof Set?(r=new Set,e.forEach(function(e){return r.add(t(e))})):r=Object.create(Object.getPrototypeOf(e)),Object.keys(e).forEach(function(n){return r[n]=t(e[n])}),r}function r(e){
