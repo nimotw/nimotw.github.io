@@ -2303,7 +2303,7 @@ window.hashStr = function(txt) {
 &lt;span id=&#39;textbox-submit&#39;&gt;
   &lt;&lt;button &#39;開始遊戲&#39;&gt;&gt;
 	&lt;&lt;set $answer to $answer.trim().toLowerCase()&gt;&gt;
-	  &lt;&lt;if hashStr($answer) == 619048710&gt;&gt;
+	  &lt;&lt;if $answer == '1234'&gt;&gt;
 		&lt;&lt;goto &quot;開場&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
 	  	&lt;&lt;goto &quot;startf&quot;&gt;&gt;
